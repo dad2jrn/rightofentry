@@ -1,0 +1,73 @@
+---
+import { Building2, CarFront, Home, KeyRound, ShieldCheck, TriangleAlert } from 'lucide-react'
+
+import services from '../../content/services.json'
+import Container from '../ui/Container.astro'
+import SectionHeader from '../ui/SectionHeader.astro'
+
+const iconMap = {
+  'building-2': Building2,
+  'car-front': CarFront,
+  home: Home,
+  'key-round': KeyRound,
+  'shield-check': ShieldCheck,
+  'triangle-alert': TriangleAlert,
+} as const
+
+type IconName = keyof typeof iconMap
+type ServiceCard = (typeof services)[number] & { icon: IconName }
+
+const serviceCards = services as ServiceCard[]
+
+// Services 5 and 6 remain in `src/content/services.json` but stay hidden until offered publicly.
+const visibleServices = serviceCards.filter((service) => service.offered)
+---
+
+<section id="services" class="border-line bg-paper border-t">
+  <Container class="py-16 md:py-20 lg:py-24">
+    <SectionHeader
+      eyebrow="What we do"
+      title="Services for every lock and key need"
+      description="Clear, practical locksmith work for homes, businesses, and vehicles across the Hampton Roads and Greater Richmond areas."
+      class="max-w-3xl"
+    />
+
+    <div class="grid gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-4 lg:gap-6">
+      {
+        visibleServices.map(({ description, href, icon, slug, title }, index) => {
+          const Icon = iconMap[icon]
+
+          return (
+            <a
+              href={href}
+              class="group rounded-card border-line bg-surface focus-visible:border-accent lg:hover:border-ink-soft flex h-full flex-col border p-5 transition-[border-color,transform] duration-200 ease-out md:p-6 lg:p-8 lg:hover:-translate-y-1"
+              aria-label={`Learn more about ${title}`}
+            >
+              <div class="flex items-start justify-between gap-4">
+                <span class="rounded-card border-line bg-paper text-accent-dark inline-flex h-11 w-11 items-center justify-center border md:h-12 md:w-12">
+                  <Icon className="h-5 w-5 md:h-6 md:w-6" aria-hidden="true" />
+                </span>
+                <span class="text-11 tracking-caps-3 text-muted pt-1 font-medium uppercase">
+                  {(index + 1).toString().padStart(2, '0')}
+                </span>
+              </div>
+
+              <div class="mt-5 flex flex-1 flex-col">
+                <h3 id={slug} class="text-18 tracking-h3 text-ink font-medium">
+                  {title}
+                </h3>
+
+                <p class="text-14 leading-body text-ink-soft mt-3">{description}</p>
+
+                <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-5 inline-flex items-center gap-2 font-medium transition-colors duration-200">
+                  Learn more
+                  <span aria-hidden="true">→</span>
+                </span>
+              </div>
+            </a>
+          )
+        })
+      }
+    </div>
+  </Container>
+</section>

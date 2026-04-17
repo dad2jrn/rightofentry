@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "emergency-lockouts",
+    "title": "Emergency Lockouts",
+    "description": "Residential, commercial, and automotive lockout help with 24/7 response.",
+    "icon": "triangle-alert",
+    "href": "/services#emergency-lockouts",
+    "offered": true
+  },
+  {
+    "slug": "lock-rekeying",
+    "title": "Lock Rekeying",
+    "description": "Keep your existing hardware and change who can access the property.",
+    "icon": "key-round",
+    "href": "/services#lock-rekeying",
+    "offered": true
+  },
+  {
+    "slug": "lock-installation",
+    "title": "Lock Installation",
+    "description": "Deadbolts, smart locks, and high-security cylinders installed correctly.",
+    "icon": "home",
+    "href": "/services#lock-installation",
+    "offered": true
+  },
+  {
+    "slug": "automotive-keys",
+    "title": "Automotive Keys",
+    "description": "Key duplication, fob programming, and ignition repair for everyday access issues.",
+    "icon": "car-front",
+    "href": "/services#automotive-keys",
+    "offered": true
+  },
+  {
+    "slug": "commercial-security",
+    "title": "Commercial Security",
+    "description": "Master key systems, access control planning, and safe security support.",
+    "icon": "building-2",
+    "href": "/services#commercial-security",
+    "offered": false
+  },
+  {
+    "slug": "security-assessments",
+    "title": "Security Assessments",
+    "description": "On-site reviews with practical recommendations for homes and businesses.",
+    "icon": "shield-check",
+    "href": "/services#security-assessments",
+    "offered": false
+  }
+]
