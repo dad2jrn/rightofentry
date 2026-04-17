@@ -1,0 +1,136 @@
+---
+import ServiceIcon from '../ui/ServiceIcon.astro'
+
+const titleSegments = {
+  'Lock Rekeying': ['Lock', 'Rekeying'],
+} as const
+
+type IconName =
+  | 'locked-door'
+  | 'cylinder-key'
+  | 'deadbolt'
+  | 'key-fob'
+  | 'keypad-entry'
+  | 'clipboard-shield'
+
+type ServiceCard = {
+  slug: string
+  title: string
+  description: string
+  icon: IconName
+  href: string
+}
+
+type Variant = 'badge' | 'numbered' | 'technical'
+
+type Props = {
+  services: ServiceCard[]
+  variant?: Variant
+}
+
+const { services, variant = 'numbered' } = Astro.props
+---
+
+{
+  variant === 'badge' && (
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {services.map(({ description, href, icon, title }) => (
+        <a
+          href={href}
+          class="group rounded-frame border-line bg-surface lg:hover:border-ink-soft border p-5 transition-[transform,border-color] duration-200 ease-out md:p-6 lg:hover:-translate-y-1"
+          aria-label={`Learn more about ${title}`}
+        >
+          <div class="bg-paper text-accent border-line inline-flex h-14 w-14 items-center justify-center rounded-full border">
+            <ServiceIcon name={icon} class="h-7 w-7" />
+          </div>
+
+          <h3 class="font-display text-28 tracking-h2-sm text-ink mt-6 max-w-[12ch] leading-tight">
+            {title}
+          </h3>
+
+          <p class="text-14 leading-body text-ink-soft mt-4 max-w-[22ch]">{description}</p>
+
+          <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-6 inline-flex items-center gap-2 font-medium transition-colors duration-200">
+            Learn more
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  )
+}
+
+{
+  variant === 'numbered' && (
+    <div class="grid gap-4 md:grid-cols-2 lg:gap-5 xl:grid-cols-4">
+      {services.map(({ description, href, icon, slug, title }) => (
+        <a
+          href={href}
+          class="group rounded-card border-line bg-surface focus-visible:border-accent lg:hover:border-ink-soft flex h-full flex-col border p-5 transition-[border-color,transform,background-color] duration-200 ease-out md:p-6 lg:p-7 lg:hover:-translate-y-1"
+          aria-label={`Learn more about ${title}`}
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h3
+                id={slug}
+                class="text-18 tracking-h3 text-ink md:text-22 max-w-[13ch] font-medium md:leading-tight"
+              >
+                {title in titleSegments ? (
+                  <>
+                    {titleSegments[title as keyof typeof titleSegments][0]}
+                    <br />
+                    {titleSegments[title as keyof typeof titleSegments][1]}
+                  </>
+                ) : (
+                  title
+                )}
+              </h3>
+            </div>
+
+            <span class="rounded-card border-line bg-paper text-accent group-hover:text-accent-dark inline-flex h-10 w-10 shrink-0 items-center justify-center border transition-colors duration-200">
+              <ServiceIcon name={icon} class="h-5.5 w-5.5" />
+            </span>
+          </div>
+
+          <p class="text-14 leading-body text-ink-soft mt-4">{description}</p>
+
+          <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-5 inline-flex items-center gap-2 font-medium transition-colors duration-200">
+            Learn more
+            <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  )
+}
+
+{
+  variant === 'technical' && (
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      {services.map(({ description, href, icon, title }) => (
+        <a
+          href={href}
+          class="group rounded-card border-line bg-surface lg:hover:border-ink-soft flex h-full flex-col overflow-hidden border transition-[border-color,transform] duration-200 ease-out lg:hover:-translate-y-1"
+          aria-label={`Learn more about ${title}`}
+        >
+          <div class="border-line flex items-center justify-end border-b px-5 py-3 md:px-6">
+            <span class="border-line text-accent group-hover:text-accent-dark inline-flex h-9 w-9 items-center justify-center rounded-full border transition-colors duration-200">
+              <ServiceIcon name={icon} class="h-4.5 w-4.5" />
+            </span>
+          </div>
+
+          <div class="flex flex-1 flex-col px-5 py-5 md:px-6 md:py-6">
+            <h3 class="text-18 tracking-h3 text-ink max-w-[12ch] font-medium">{title}</h3>
+
+            <p class="text-14 leading-body text-ink-soft mt-3">{description}</p>
+
+            <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-6 inline-flex items-center gap-2 font-medium transition-colors duration-200">
+              Review service
+              <span aria-hidden="true">→</span>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  )
+}

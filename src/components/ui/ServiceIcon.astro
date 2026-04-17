@@ -1,0 +1,31 @@
+---
+import { Building2, CarFront, DoorClosed, KeyRound, LockKeyhole, ShieldCheck } from 'lucide-react'
+
+type IconName =
+  | 'locked-door'
+  | 'cylinder-key'
+  | 'deadbolt'
+  | 'key-fob'
+  | 'keypad-entry'
+  | 'clipboard-shield'
+
+type Props = {
+  name: IconName
+  class?: string
+}
+
+const { name, class: className = 'h-6 w-6' } = Astro.props
+
+const iconMap = {
+  'clipboard-shield': ShieldCheck,
+  'cylinder-key': KeyRound,
+  deadbolt: LockKeyhole,
+  'key-fob': CarFront,
+  'keypad-entry': Building2,
+  'locked-door': DoorClosed,
+} as const
+
+const Icon = iconMap[name]
+---
+
+<Icon {className} aria-hidden="true" strokeWidth={1.8} />

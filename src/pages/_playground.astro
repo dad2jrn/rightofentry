@@ -2,7 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Button from '../components/ui/Button.astro'
 import Container from '../components/ui/Container.astro'
+import ServicesCardGrid from '../components/sections/ServicesCardGrid.astro'
 import SectionHeader from '../components/ui/SectionHeader.astro'
+import services from '../content/services.json'
+
+type IconName =
+  | 'locked-door'
+  | 'cylinder-key'
+  | 'deadbolt'
+  | 'key-fob'
+  | 'keypad-entry'
+  | 'clipboard-shield'
+
+type ServiceCard = (typeof services)[number] & { icon: IconName }
+
+const serviceCards = services as ServiceCard[]
 ---
 
 <BaseLayout
@@ -17,7 +31,7 @@ import SectionHeader from '../components/ui/SectionHeader.astro'
       align="split"
     />
 
-    <section class="space-y-6 border border-line bg-surface p-8 rounded-card">
+    <section class="border-line bg-surface rounded-card space-y-6 border p-8">
       <div class="flex flex-wrap items-center gap-3">
         <Button variant="primary" size="sm">Primary (sm)</Button>
         <Button variant="primary" size="md">Primary (md)</Button>
@@ -55,11 +69,43 @@ import SectionHeader from '../components/ui/SectionHeader.astro'
 
     <section class="space-y-4">
       <h2 class="text-18 tracking-h3 font-medium">Container width check</h2>
-      <div class="border border-line bg-surface p-6 rounded-card">
+      <div class="border-line bg-surface rounded-card border p-6">
         <p class="text-15 text-ink-soft leading-body">
-          Resize the viewport to verify this container remains centered with responsive horizontal padding and
-          maxes at <code>var(--container-max)</code>.
+          Resize the viewport to verify this container remains centered with responsive horizontal
+          padding and maxes at <code>var(--container-max)</code>.
         </p>
+      </div>
+    </section>
+
+    <section class="border-line space-y-8 border-t pt-12">
+      <SectionHeader
+        eyebrow="Service studies"
+        title="Three directions for the service cards"
+        description="Comparing a badge-first layout, a typography-led layout, and a more technical strip layout with the same locksmith-specific pictograms."
+      />
+
+      <div class="space-y-5">
+        <div>
+          <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">Direction A</p>
+          <h3 class="text-18 tracking-h3 text-ink mt-2 font-medium">Badge-first pictograms</h3>
+        </div>
+        <ServicesCardGrid services={serviceCards} variant="badge" />
+      </div>
+
+      <div class="space-y-5">
+        <div>
+          <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">Direction B</p>
+          <h3 class="text-18 tracking-h3 text-ink mt-2 font-medium">Number-led editorial cards</h3>
+        </div>
+        <ServicesCardGrid services={serviceCards} variant="numbered" />
+      </div>
+
+      <div class="space-y-5">
+        <div>
+          <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">Direction C</p>
+          <h3 class="text-18 tracking-h3 text-ink mt-2 font-medium">Technical strip cards</h3>
+        </div>
+        <ServicesCardGrid services={serviceCards} variant="technical" />
       </div>
     </section>
   </Container>
