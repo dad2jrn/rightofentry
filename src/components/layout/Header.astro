@@ -63,6 +63,7 @@ const isActiveLink = (href: string) => {
               <li>
                 <a
                   href={href}
+                  data-nav-link
                   aria-current={active ? 'page' : undefined}
                   class={cn(
                     'text-13 text-ink-soft hover:text-ink font-medium transition-colors duration-200',
@@ -102,3 +103,27 @@ const isActiveLink = (href: string) => {
     </a>
   </Container>
 </header>
+
+<script>
+  const syncHeaderNavState = () => {
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]'))
+    const currentPath = window.location.pathname
+    const currentHash = window.location.hash
+
+    for (const link of links) {
+      const url = new URL(link.href, window.location.origin)
+      const isActive = currentHash
+        ? url.pathname === currentPath && url.hash === currentHash
+        : url.pathname === currentPath && !url.hash
+
+      link.setAttribute('aria-current', isActive ? 'page' : '')
+      link.classList.toggle('text-ink', isActive)
+      link.classList.toggle('underline', isActive)
+      link.classList.toggle('decoration-1', isActive)
+      link.classList.toggle('underline-offset-8', isActive)
+    }
+  }
+
+  syncHeaderNavState()
+  window.addEventListener('hashchange', syncHeaderNavState)
+</script>
