@@ -1,0 +1,82 @@
+---
+import { BadgeCheck, DollarSign, MapPin, Shield } from 'lucide-react'
+
+import Container from '../ui/Container.astro'
+import SectionHeader from '../ui/SectionHeader.astro'
+
+type TrustItem = {
+  title: string
+  body: string[]
+  icon: typeof MapPin
+}
+
+const trustItems: TrustItem[] = [
+  {
+    title: 'Actually local',
+    icon: MapPin,
+    body: [
+      'Based in the Williamsburg area, not a national call center buying local-looking ads. We are also located neaer the middle of the areas we servemeaning we can get to you quicker.',
+      'When you call Right of Entry, you reach the businesperson who will actually be doing the work instead of a dispatcher brokering the job to whoever answers first.',
+    ],
+  },
+  {
+    title: 'Licensed & insured',
+    icon: BadgeCheck,
+    body: [
+      'Virginia DCJS locksmith licensing, general liability coverage, and bonded technicians are part of the baseline.',
+      'That means your job is handled by an accountable operator, not an anonymous subcontractor with no paper trail.',
+    ],
+  },
+  {
+    title: 'Transparent pricing',
+    icon: DollarSign,
+    body: [
+      'Pricing estimates come before work begins so the scope and price are clear up front.',
+      'No bait-and-switch ad pricing, and no mystery trip fee showing up only when the invoice is in your hand.',
+    ],
+  },
+  {
+    title: 'Disabled veteran-owned',
+    icon: Shield,
+    body: [
+      'Right of Entry is owned by a Navy veteran with service-connected disability status.',
+      "The service standard is straightforward: show up prepared, communicate clearly, and treat the customer's property like it matters.",
+    ],
+  },
+]
+---
+
+<section id="why-us" class="border-line bg-surface border-t">
+  <Container class="py-16 md:py-20 lg:py-24">
+    <SectionHeader
+      eyebrow="Why Right of Entry"
+      title="Local, licensed, and accountable"
+      description="The difference between a real local locksmith and a lead-generation middleman is easy to spot."
+      class="max-w-3xl"
+    />
+
+    <div class="grid gap-4 md:grid-cols-2 md:gap-5">
+      {
+        trustItems.map(({ body, icon: Icon, title }) => (
+          <article class="rounded-card border-line bg-paper flex h-full flex-col border p-6 md:p-7">
+            <div class="flex items-start gap-4">
+              <span class="rounded-card border-line bg-surface text-accent inline-flex h-11 w-11 shrink-0 items-center justify-center border">
+                <Icon className="h-5 w-5" aria-hidden="true" strokeWidth={1.8} />
+              </span>
+
+              <div class="flex flex-1 flex-col gap-3">
+                <h3 class="text-18 tracking-h3 text-ink md:text-22 font-medium leading-tight">
+                  {title}
+                </h3>
+
+                <div class="text-14 leading-body text-ink-soft space-y-3">
+                  {body.map((paragraph) => <p>{paragraph}</p>)}
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </Container>
+</section>

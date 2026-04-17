@@ -28,10 +28,22 @@ export function MobileNav({
   pathname,
 }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [currentHash, setCurrentHash] = useState('')
   const triggerRef = useRef<HTMLButtonElement>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const previousActiveElementRef = useRef<HTMLElement | null>(null)
   const titleId = useId()
+
+  useEffect(() => {
+    const syncHash = () => setCurrentHash(window.location.hash)
+
+    syncHash()
+    window.addEventListener('hashchange', syncHash)
+
+    return () => {
+      window.removeEventListener('hashchange', syncHash)
+    }
+  }, [])
 
   useEffect(() => {
     if (!isOpen) {
@@ -93,11 +105,31 @@ export function MobileNav({
   }
 
   const isActiveLink = (href: string) => {
-    if (href === '/') {
+    const [targetPath, hash = ''] = href.split('#')
+
+    if (!hash) {
+      if (targetPath === '/') {
+        return pathname === '/' && !currentHash
+      }
+
+      return pathname === targetPath || pathname.startsWith(`${targetPath}/`)
+    }
+
+    if (targetPath !== pathname) {
+      return false
+    }
+
+    return currentHash === `#${hash}`
+  }
+
+  const isHomeLink = (href: string) => {
+    const [targetPath, hash = ''] = href.split('#')
+
+    if (!hash && targetPath === '/') {
       return pathname === '/'
     }
 
-    return pathname === href || pathname.startsWith(`${href}/`)
+    return false
   }
 
   return (
@@ -157,10 +189,10 @@ export function MobileNav({
                     <li key={href} className="w-full border-b border-paper-15 pb-6 last:border-b-0 last:pb-0">
                       <a
                         href={href}
-                        aria-current={isActiveLink(href) ? 'page' : undefined}
+                        aria-current={(isActiveLink(href) || isHomeLink(href)) ? 'page' : undefined}
                         className={cn(
                           'block text-32 font-display leading-tight tracking-h2-sm text-paper transition-colors duration-200 hover:text-paper-60',
-                          isActiveLink(href) && 'text-accent',
+                          (isActiveLink(href) || isHomeLink(href)) && 'text-accent',
                         )}
                         onClick={closeMenu}
                       >
