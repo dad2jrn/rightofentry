@@ -1,6 +1,7 @@
 ---
 import Container from '../ui/Container.astro'
 import { MobileNav } from './MobileNav'
+import Logo from '../brand/Logo.astro'
 import { BUSINESS_NAME, BUSINESS_PHONE, BUSINESS_PHONE_HREF } from '../../lib/business-info'
 import { cn } from '../../lib/cn'
 
@@ -26,11 +27,10 @@ const isActiveLink = (href: string) => {
   <Container as="div" class="flex min-h-20 items-center gap-4">
     <a
       href="/"
-      class="flex shrink-0 flex-col justify-center gap-2 py-4 text-ink transition-colors duration-200 hover:text-ink-soft"
+      class="flex shrink-0 items-center py-3 text-ink transition-colors duration-200 hover:text-ink-soft"
       aria-label={BUSINESS_NAME}
     >
-      <span class="text-15 font-semibold tracking-logo">{BUSINESS_NAME}</span>
-      <span class="block h-px w-13 bg-accent" aria-hidden="true"></span>
+      <Logo class="w-[170px] min-[380px]:w-[184px] sm:w-[214px] lg:w-[228px]" />
     </a>
 
     <div class="ml-auto md:hidden">

@@ -1,0 +1,59 @@
+---
+import { cn } from '../../lib/cn'
+
+type Props = {
+  class?: string
+  variant?: 'light' | 'dark'
+}
+
+const { class: className, variant = 'dark' } = Astro.props
+
+const primary = variant === 'light' ? 'var(--color-paper)' : 'var(--color-ink)'
+const secondary = variant === 'light' ? 'var(--color-paper-60)' : 'var(--color-muted)'
+---
+
+<svg
+  viewBox="0 0 352 154"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  class={cn('h-auto w-full', className)}
+>
+  <g transform="translate(11 11) scale(0.935)">
+    <path
+      d="M 65 22 L 105 34 L 105 68 Q 105 94 65 114 Q 25 94 25 68 L 25 34 Z"
+      fill="none"
+      stroke={primary}
+      stroke-width="3.25"
+      stroke-linejoin="round"
+    />
+    <circle cx="65" cy="55" r="9" fill="none" stroke={primary} stroke-width="3.25" />
+    <circle cx="65" cy="55" r="3.25" fill={primary} />
+    <rect x="62.75" y="64" width="4.5" height="28" fill={primary} />
+    <rect x="67" y="79.5" width="9" height="3.25" fill={primary} />
+    <rect x="67" y="86" width="6.5" height="3.25" fill={primary} />
+  </g>
+
+  <text
+    x="125"
+    y="75"
+    font-family="var(--font-display)"
+    font-size="33"
+    font-weight="400"
+    fill={primary}
+    letter-spacing="-0.3"
+  >
+    Right of Entry
+  </text>
+  <line x1="125" y1="86" x2="272" y2="86" stroke="var(--color-accent)" stroke-width="1.65" />
+  <text
+    x="125"
+    y="114"
+    font-family="var(--font-sans)"
+    font-size="18"
+    font-weight="500"
+    fill={secondary}
+    letter-spacing="1.5"
+  >
+    LOCK &amp; SECURITY
+  </text>
+</svg>
