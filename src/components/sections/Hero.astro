@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets'
+
+import Container from '../ui/Container.astro'
+import Button from '../ui/Button.astro'
+import heroPlaceholder from '../../assets/images/hero-placeholder.jpg'
+import { BUSINESS_PHONE, BUSINESS_PHONE_HREF } from '../../lib/business-info'
+---
+
+<section class="relative overflow-hidden bg-ink py-24 text-paper lg:py-32">
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgb(184_134_58_/_0.24),_transparent_42%),linear-gradient(180deg,_rgb(255_255_255_/_0.02),_transparent_38%)]"
+    aria-hidden="true"
+  ></div>
+
+  <Container class="relative">
+    <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(420px,520px)] lg:gap-16">
+      <div class="order-2 lg:order-1">
+        <p class="mb-4 text-11 font-medium uppercase tracking-caps-3 text-accent">
+          Serving Hampton Roads &amp the Greater Richmond areas
+        </p>
+
+        <h1 class="max-w-[12ch] font-display text-[3.25rem] font-medium tracking-[-0.01em] leading-hero text-paper sm:text-[3.6rem] xl:text-[4.15rem]">
+          Locksmith &amp security services you can call at 2 AM.
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-16 leading-body text-paper/78 sm:text-18">
+          Licensed, insured, and local. Emergency lockouts, rekeys, lock installation, and security assessments for homes and businesses across the Peninsula.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <Button
+            href={BUSINESS_PHONE_HREF}
+            variant="brass"
+            size="lg"
+            class="justify-center shadow-[0_18px_40px_rgb(184_134_58_/_0.3)]"
+            ariaLabel={`Call Right of Entry Lock & Security at ${BUSINESS_PHONE}`}
+          >
+            <span class="inline-flex items-center gap-2">
+              <span class="h-1.5 w-1.5 rounded-full bg-live" aria-hidden="true"></span>
+              <svg
+                class="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3.57a2 2 0 0 1-.57 1.72L7.91 10.1a16 16 0 0 0 6 6l1.09-1.08a2 2 0 0 1 1.72-.57l3.57.45A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>Call {BUSINESS_PHONE}</span>
+            </span>
+          </Button>
+
+          <a
+            href="#services"
+            class="inline-flex items-center justify-center rounded-sharp border border-paper-15 px-7 py-4 text-14 font-medium tracking-button text-paper transition-colors duration-200 hover:border-paper hover:bg-paper hover:text-ink"
+          >
+            See services
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-12 font-medium uppercase tracking-caps-2 text-paper/70">
+          <span>Licensed in Virginia</span>
+          <span>Insured &amp; Bonded</span>
+          <span>Disabled Veteran-Owned</span>
+        </div>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <div class="relative overflow-hidden rounded-frame border border-paper-15 bg-paper/5 shadow-[0_28px_80px_rgb(0_0_0_/_0.28)]">
+          <Image
+            src={heroPlaceholder}
+            alt="Placeholder portrait for a locksmith and security services hero image"
+            widths={[320, 480, 640, 800, 960]}
+            sizes="(min-width: 1024px) 520px, (min-width: 640px) 70vw, 100vw"
+            width={960}
+            height={1200}
+            loading="eager"
+            fetchpriority="high"
+            class="aspect-[4/5] w-full object-cover"
+          />
+
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent p-6">
+            <p class="text-11 font-medium uppercase tracking-caps-3 text-paper/80">
+              Professional photo placeholder
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

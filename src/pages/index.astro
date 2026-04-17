@@ -1,27 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import Container from '../components/ui/Container.astro'
+import Hero from '../components/sections/Hero.astro'
 ---
 
 <BaseLayout
   title="Right of Entry Lock & Security | 24/7 Locksmith in Hampton Roads and Greater Richmond, VA areas"
   description="24/7 licensed locksmith serving Southeastern Virginia. Emergency lockouts, rekeying, lock installation, and commercial security."
 >
-  <section class="py-16 md:py-24">
-    <Container>
-      <div class="max-w-3xl">
-        <p class="mb-4 text-11 font-medium uppercase tracking-caps-3 text-accent-dark">
-          Local locksmith service
-        </p>
-        <h1 class="font-display text-[42px] font-medium tracking-hero leading-hero text-ink md:text-52">
-          Locked out?<br />
-          We&apos;re <em class="not-italic text-accent-dark">on the way.</em>
-        </h1>
-        <p class="mt-6 max-w-2xl text-16 leading-body text-ink-soft">
-          Right of Entry Lock &amp; Security serves Hampton Roads and Greater Richmond, VA areas with emergency lockout help, rekeying, and practical security work for
-          homes and vehicles.
-        </p>
-      </div>
-    </Container>
-  </section>
+  <Hero />
+  <div id="services" aria-hidden="true"></div>
 </BaseLayout>
