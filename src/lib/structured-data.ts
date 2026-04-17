@@ -26,8 +26,8 @@ export function localBusinessSchema() {
     openingHours: BUSINESS_HOURS,
     priceRange: '$$',
     areaServed: [
-      { '@type': 'City', name: 'Williamsburg, VA' },
-      { '@type': 'City', name: 'Toano, VA' },
+      { '@type': 'City', name: 'Hamtpon Roads' },
+      { '@type': 'City', name: 'Greater Richmond' },
       { '@type': 'AdministrativeArea', name: 'James City County, VA' },
     ],
   }
