@@ -27,7 +27,36 @@ Temporary Items
 .apdisk
 
 
-# Project Documents
-Plan.md
+# Project Documents (planning — kept out of public repo)
+PLAN.md
 PROJECT_INSTRUCTIONS.md
 STYLE.md
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Astro build output
+dist/
+.astro/
+
+# Environment secrets — never commit these
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# Secrets folder — any file inside is excluded
+secrets/
+
+# Editor
+.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
