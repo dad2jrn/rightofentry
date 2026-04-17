@@ -5,7 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   // site: 'https://roelock.com',
-  site: '/rightofentry',
+  site: 'https://dad2jrn.github.io',
+  base: '/rightofentry',
   output: 'static',
   integrations: [react(), sitemap()],
   vite: {
