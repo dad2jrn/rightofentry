@@ -1,5 +1,6 @@
 ---
 import Container from '../ui/Container.astro'
+import { MobileNav } from './MobileNav'
 import { BUSINESS_NAME, BUSINESS_PHONE, BUSINESS_PHONE_HREF } from '../../lib/business-info'
 import { cn } from '../../lib/cn'
 
@@ -21,8 +22,8 @@ const isActiveLink = (href: string) => {
 }
 ---
 
-<header class="sticky top-0 z-50 hidden border-b border-line/80 bg-paper/92 backdrop-blur-md md:block">
-  <Container as="div" class="flex min-h-20 items-center gap-8">
+<header class="sticky top-0 z-50 border-b border-line/80 bg-paper/92 backdrop-blur-md">
+  <Container as="div" class="flex min-h-20 items-center gap-4">
     <a
       href="/"
       class="flex shrink-0 flex-col justify-center gap-2 py-4 text-ink transition-colors duration-200 hover:text-ink-soft"
@@ -32,7 +33,18 @@ const isActiveLink = (href: string) => {
       <span class="block h-px w-13 bg-accent" aria-hidden="true"></span>
     </a>
 
-    <nav class="ml-auto" aria-label="Primary">
+    <div class="ml-auto md:hidden">
+      <MobileNav
+        client:media="(max-width: 1023px)"
+        businessName={BUSINESS_NAME}
+        phone={BUSINESS_PHONE}
+        phoneHref={BUSINESS_PHONE_HREF}
+        links={navLinks}
+        pathname={pathname}
+      />
+    </div>
+
+    <nav class="ml-auto hidden md:block" aria-label="Primary">
       <ul class="flex items-center gap-8">
         {
           navLinks.map(({ href, label }) => {
@@ -59,7 +71,7 @@ const isActiveLink = (href: string) => {
 
     <a
       href={BUSINESS_PHONE_HREF}
-      class="inline-flex items-center gap-2 rounded-sharp bg-ink px-5 py-2.5 text-13 font-medium tracking-button text-paper transition-colors duration-200 hover:bg-ink-soft"
+      class="hidden items-center gap-2 rounded-sharp bg-ink px-5 py-2.5 text-13 font-medium tracking-button text-paper transition-colors duration-200 hover:bg-ink-soft md:inline-flex"
       aria-label={`Call ${BUSINESS_NAME} at ${BUSINESS_PHONE}`}
     >
       <span class="h-1.5 w-1.5 rounded-full bg-live" aria-hidden="true"></span>

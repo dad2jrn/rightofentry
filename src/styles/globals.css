@@ -87,6 +87,11 @@
 
   html { scroll-behavior: smooth; }
 
+  html.mobile-nav-open,
+  html.mobile-nav-open body {
+    overflow: hidden;
+  }
+
   body {
     background: var(--color-paper);
     color: var(--color-ink);
