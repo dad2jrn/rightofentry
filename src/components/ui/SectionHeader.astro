@@ -1,0 +1,47 @@
+---
+import { cn } from '../../lib/cn'
+
+type Align = 'left' | 'split'
+
+type Props = {
+  eyebrow?: string
+  title: string
+  description?: string
+  align?: Align
+  class?: string
+}
+
+const { eyebrow, title, description, align = 'left', class: className } = Astro.props
+---
+
+<header
+  class={cn(
+    align === 'split' ? 'mb-14 flex items-end justify-between gap-8' : 'mb-12',
+    className,
+  )}
+>
+  <div>
+    {
+      eyebrow && (
+        <p class="mb-3 text-11 font-medium tracking-caps-3 text-muted uppercase">{eyebrow}</p>
+      )
+    }
+    <h2
+      class={cn(
+        'font-display font-medium',
+        align === 'split'
+          ? 'max-w-[520px] text-28 tracking-h2 leading-display md:text-36'
+          : 'text-28 tracking-h2-sm',
+      )}
+    >
+      {title}
+    </h2>
+  </div>
+  {
+    description && (
+      <p class="max-w-[280px] text-14 text-muted leading-body">
+        {description}
+      </p>
+    )
+  }
+</header>

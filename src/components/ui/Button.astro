@@ -1,0 +1,68 @@
+---
+import { cn } from '../../lib/cn'
+
+type Variant = 'primary' | 'secondary' | 'brass'
+type Size = 'sm' | 'md' | 'lg'
+type ButtonType = 'button' | 'submit' | 'reset'
+
+type Props = {
+  variant?: Variant
+  size?: Size
+  href?: string
+  type?: ButtonType
+  class?: string
+  ariaLabel?: string
+  disabled?: boolean
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  class: className,
+  ariaLabel,
+  disabled = false,
+} = Astro.props
+
+const baseClasses =
+  'inline-flex items-center justify-center gap-2 rounded-sharp border font-medium tracking-button ' +
+  'transition-[color,background-color,border-color,transform] duration-200 ease-out ' +
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ' +
+  'aria-disabled:pointer-events-none aria-disabled:opacity-50'
+
+const variantClasses: Record<Variant, string> = {
+  primary: 'border-transparent bg-ink text-paper hover:bg-ink-soft',
+  secondary: 'border-ink bg-transparent text-ink hover:bg-ink hover:text-paper',
+  brass: 'border-transparent bg-accent text-paper hover:bg-accent-dark',
+}
+
+const sizeClasses: Record<Size, string> = {
+  sm: 'px-5 py-2.5 text-12',
+  md: 'px-6 py-3.5 text-13',
+  lg: 'px-7 py-4 text-14',
+}
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={cn(baseClasses, variantClasses[variant], sizeClasses[size], className)}
+      aria-label={ariaLabel}
+      aria-disabled={disabled || undefined}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={cn(baseClasses, variantClasses[variant], sizeClasses[size], className)}
+      aria-label={ariaLabel}
+      disabled={disabled}
+      aria-disabled={disabled || undefined}
+    >
+      <slot />
+    </button>
+  )
+}

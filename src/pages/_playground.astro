@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Button from '../components/ui/Button.astro'
+import Container from '../components/ui/Container.astro'
+import SectionHeader from '../components/ui/SectionHeader.astro'
+---
+
+<BaseLayout
+  title="UI Playground | Right of Entry Lock & Security"
+  description="Internal UI primitives playground for Story 2.4."
+>
+  <Container class="py-section-sm space-y-12">
+    <SectionHeader
+      eyebrow="UI primitives"
+      title="Buttons"
+      description="Primary, secondary, and brass variants in every supported size."
+      align="split"
+    />
+
+    <section class="space-y-6 border border-line bg-surface p-8 rounded-card">
+      <div class="flex flex-wrap items-center gap-3">
+        <Button variant="primary" size="sm">Primary (sm)</Button>
+        <Button variant="primary" size="md">Primary (md)</Button>
+        <Button variant="primary" size="lg">Primary (lg)</Button>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <Button variant="secondary" size="sm">Secondary (sm)</Button>
+        <Button variant="secondary" size="md">Secondary (md)</Button>
+        <Button variant="secondary" size="lg">Secondary (lg)</Button>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <Button variant="brass" size="sm">Brass (sm)</Button>
+        <Button variant="brass" size="md">Brass (md)</Button>
+        <Button variant="brass" size="lg">Brass (lg)</Button>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <Button href="/contact" variant="primary">Anchor button</Button>
+        <Button disabled variant="secondary">Disabled state</Button>
+      </div>
+    </section>
+
+    <section class="space-y-10">
+      <SectionHeader
+        eyebrow="Left aligned"
+        title="Fast response. Straight answers."
+        description="Default section header treatment for stacked section intros."
+      />
+      <SectionHeader
+        eyebrow="Split aligned"
+        title="Security work done right the first time"
+        description="Split treatment for sections where title and supporting copy need separate columns."
+        align="split"
+      />
+    </section>
+
+    <section class="space-y-4">
+      <h2 class="text-18 tracking-h3 font-medium">Container width check</h2>
+      <div class="border border-line bg-surface p-6 rounded-card">
+        <p class="text-15 text-ink-soft leading-body">
+          Resize the viewport to verify this container remains centered with responsive horizontal padding and
+          maxes at <code>var(--container-max)</code>.
+        </p>
+      </div>
+    </section>
+  </Container>
+</BaseLayout>
