@@ -4,30 +4,39 @@ import { MobileNav } from './MobileNav'
 import Logo from '../brand/Logo.astro'
 import { BUSINESS_NAME, BUSINESS_PHONE, BUSINESS_PHONE_HREF } from '../../lib/business-info'
 import { cn } from '../../lib/cn'
+import { withBase } from '../../lib/paths'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: withBase('/'), label: 'Home' },
+  { href: withBase('/#services'), label: 'Services' },
+  { href: withBase('/#about'), label: 'About' },
+  { href: withBase('/#contact'), label: 'Contact' },
 ] as const
 
 const pathname = Astro.url.pathname
 
 const isActiveLink = (href: string) => {
-  if (href === '/') {
-    return pathname === '/'
+  const [targetPath, hash] = href.split('#')
+
+  if (hash) {
+    return false
   }
 
-  return pathname === href || pathname.startsWith(`${href}/`)
+  const homePath = withBase('/')
+
+  if (targetPath === homePath) {
+    return pathname === homePath
+  }
+
+  return pathname === targetPath || pathname.startsWith(`${targetPath}/`)
 }
 ---
 
-<header class="sticky top-0 z-50 border-b border-line/80 bg-paper/92 backdrop-blur-md">
+<header class="border-line/80 bg-paper/92 sticky top-0 z-50 border-b backdrop-blur-md">
   <Container as="div" class="flex min-h-20 items-center gap-4">
     <a
-      href="/"
-      class="flex shrink-0 items-center py-3 text-ink transition-colors duration-200 hover:text-ink-soft"
+      href={withBase('/')}
+      class="text-ink hover:text-ink-soft flex shrink-0 items-center py-3 transition-colors duration-200"
       aria-label={BUSINESS_NAME}
     >
       <Logo class="w-[170px] min-[380px]:w-[184px] sm:w-[214px] lg:w-[228px]" />
@@ -40,7 +49,7 @@ const isActiveLink = (href: string) => {
         phone={BUSINESS_PHONE}
         phoneHref={BUSINESS_PHONE_HREF}
         links={navLinks}
-        pathname={pathname}
+        {pathname}
       />
     </div>
 
@@ -56,7 +65,7 @@ const isActiveLink = (href: string) => {
                   href={href}
                   aria-current={active ? 'page' : undefined}
                   class={cn(
-                    'text-13 font-medium text-ink-soft transition-colors duration-200 hover:text-ink',
+                    'text-13 text-ink-soft hover:text-ink font-medium transition-colors duration-200',
                     active && 'text-ink underline decoration-1 underline-offset-8',
                   )}
                 >
@@ -71,10 +80,10 @@ const isActiveLink = (href: string) => {
 
     <a
       href={BUSINESS_PHONE_HREF}
-      class="hidden items-center gap-2 rounded-sharp bg-ink px-5 py-2.5 text-13 font-medium tracking-button text-paper transition-colors duration-200 hover:bg-ink-soft md:inline-flex"
+      class="rounded-sharp bg-ink text-13 tracking-button text-paper hover:bg-ink-soft hidden items-center gap-2 px-5 py-2.5 font-medium transition-colors duration-200 md:inline-flex"
       aria-label={`Call ${BUSINESS_NAME} at ${BUSINESS_PHONE}`}
     >
-      <span class="h-1.5 w-1.5 rounded-full bg-live" aria-hidden="true"></span>
+      <span class="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
       <svg
         class="h-4 w-4"
         viewBox="0 0 24 24"
@@ -85,7 +94,9 @@ const isActiveLink = (href: string) => {
         stroke-linejoin="round"
         aria-hidden="true"
       >
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3.57a2 2 0 0 1-.57 1.72L7.91 10.1a16 16 0 0 0 6 6l1.09-1.08a2 2 0 0 1 1.72-.57l3.57.45A2 2 0 0 1 22 16.92z"></path>
+        <path
+          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3.57a2 2 0 0 1-.57 1.72L7.91 10.1a16 16 0 0 0 6 6l1.09-1.08a2 2 0 0 1 1.72-.57l3.57.45A2 2 0 0 1 22 16.92z"
+        ></path>
       </svg>
       <span>Call Now {BUSINESS_PHONE}</span>
     </a>

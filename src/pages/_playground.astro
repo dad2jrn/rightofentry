@@ -5,6 +5,7 @@ import Container from '../components/ui/Container.astro'
 import ServicesCardGrid from '../components/sections/ServicesCardGrid.astro'
 import SectionHeader from '../components/ui/SectionHeader.astro'
 import services from '../content/services.json'
+import { withBase } from '../lib/paths'
 
 type IconName =
   | 'locked-door'
@@ -48,7 +49,7 @@ const serviceCards = services as ServiceCard[]
         <Button variant="brass" size="lg">Brass (lg)</Button>
       </div>
       <div class="flex flex-wrap items-center gap-3">
-        <Button href="/contact" variant="primary">Anchor button</Button>
+        <Button href={withBase('/#contact')} variant="primary">Anchor button</Button>
         <Button disabled variant="secondary">Disabled state</Button>
       </div>
     </section>
