@@ -1,8 +1,21 @@
 ---
+import { getCollection } from 'astro:content'
+
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Hero from '../components/sections/Hero.astro'
 import Services from '../components/sections/Services.astro'
 import WhyUs from '../components/sections/WhyUs.astro'
+import Testimonials from '../components/sections/Testimonials'
+import { HOME_SECTION_FLAGS } from '../lib/home-sections'
+
+const testimonials = HOME_SECTION_FLAGS.testimonials.enabled
+  ? (await getCollection('testimonials'))
+      .sort((left, right) => left.id.localeCompare(right.id))
+      .map(({ data, id }) => ({
+        id,
+        ...data,
+      }))
+  : []
 ---
 
 <BaseLayout
@@ -12,4 +25,5 @@ import WhyUs from '../components/sections/WhyUs.astro'
   <Hero />
   <Services />
   <WhyUs />
+  {HOME_SECTION_FLAGS.testimonials.enabled && <Testimonials client:visible testimonials={testimonials} />}
 </BaseLayout>
