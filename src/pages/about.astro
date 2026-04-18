@@ -1,0 +1,275 @@
+---
+import { Picture } from 'astro:assets'
+import {
+  BadgeCheck,
+  BriefcaseBusiness,
+  MapPinned,
+  ShieldCheck,
+  ShieldEllipsis,
+  Users,
+} from 'lucide-react'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Container from '../components/ui/Container.astro'
+import SectionHeader from '../components/ui/SectionHeader.astro'
+import FinalCTA from '../components/sections/FinalCTA.astro'
+import ownerPortrait from '../assets/images/owner-portrait.jpg'
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_NAME,
+  BUSINESS_PHONE,
+  BUSINESS_PHONE_HREF,
+  BUSINESS_SERVICE_AREA,
+  BUSINESS_URL,
+} from '../lib/business-info'
+
+const heroDescription =
+  'Right of Entry Lock & Security is a local locksmith business built around straightforward communication, accountable work, and practical security help for homes, vehicles, and small businesses across Hampton Roads and Greater Richmond.'
+
+const credentials = [
+  {
+    title: 'Virginia DCJS locksmith licensing',
+    detail: 'License number can be added here before launch.',
+    icon: BadgeCheck,
+  },
+  {
+    title: 'General liability insured',
+    detail: 'Coverage in place for residential, vehicle, and light commercial work.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Bonded service',
+    detail: 'Accountable workmanship with documented business identity behind the job.',
+    icon: ShieldEllipsis,
+  },
+  {
+    title: 'Disabled veteran-owned business',
+    detail: 'Owned and operated by a Navy veteran with service-connected disability status.',
+    icon: BriefcaseBusiness,
+  },
+  {
+    title: 'Family-owned structure',
+    detail: 'Local decision-making, direct communication, and no outsourced dispatch layer.',
+    icon: Users,
+  },
+  {
+    title: 'Locally based in Toano',
+    detail:
+      'Positioned to cover Hampton Roads and Greater Richmond without pretending to be everywhere.',
+    icon: MapPinned,
+  },
+] as const
+
+const serviceAreaGroups = [
+  {
+    label: 'Hampton Roads',
+    areas: [
+      'Virginia Beach',
+      'Norfolk',
+      'Chesapeake',
+      'Portsmouth',
+      'Suffolk',
+      'Hampton',
+      'Newport News',
+      'Williamsburg',
+      'York County',
+      'James City County',
+      'Poquoson',
+      'Smithfield and Isle of Wight',
+    ],
+  },
+  {
+    label: 'Greater Richmond',
+    areas: [
+      'Richmond',
+      'Henrico',
+      'Chesterfield',
+      'Midlothian',
+      'Mechanicsville',
+      'Hanover',
+      'Glen Allen',
+      'Short Pump',
+      'Varina',
+      'Colonial Heights',
+      'Hopewell',
+      'Prince George',
+    ],
+  },
+] as const
+---
+
+<BaseLayout
+  title={`About ${BUSINESS_NAME} | Local Locksmith in ${BUSINESS_SERVICE_AREA}`}
+  description={`Learn about ${BUSINESS_NAME}, a family-owned, disabled veteran-owned locksmith serving ${BUSINESS_SERVICE_AREA} from James City County, Virginia.`}
+  canonical={new URL('/about', BUSINESS_URL).href}
+>
+  <section class="border-line bg-paper border-b">
+    <Container class="py-16 md:py-20 lg:py-24">
+      <div class="max-w-4xl">
+        <p class="text-11 tracking-caps-3 text-accent-dark mb-4 font-medium uppercase">
+          About Right of Entry
+        </p>
+        <h1
+          class="font-display text-32 tracking-h2-sm max-w-[12ch] leading-tight font-medium md:text-[2.75rem] lg:text-[3.25rem]"
+        >
+          Built to be the kind of locksmith people can trust under pressure.
+        </h1>
+        <p class="text-16 leading-body text-ink-soft mt-6 max-w-3xl">
+          {heroDescription}
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <section class="border-line bg-surface border-b">
+    <Container class="py-16 md:py-20 lg:py-24">
+      <div
+        class="grid items-start gap-10 lg:grid-cols-[minmax(320px,0.88fr)_minmax(0,1.12fr)] lg:gap-14"
+      >
+        <div class="order-2 lg:order-1">
+          <div class="rounded-frame border-line overflow-hidden border bg-[#F1EEE7]">
+            <Picture
+              src={ownerPortrait}
+              formats={['avif', 'webp']}
+              widths={[320, 480, 640, 896]}
+              sizes="(min-width: 1024px) 34rem, (min-width: 768px) 42vw, 100vw"
+              quality="high"
+              alt="Owner of Right of Entry Lock & Security standing outside in a branded black company shirt"
+              class="aspect-[4/5] w-full object-cover object-center"
+            />
+          </div>
+
+          <div class="rounded-card border-line bg-paper mt-4 border p-5">
+            <p class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase">
+              Owner background
+            </p>
+            <p class="text-14 leading-body text-ink-soft mt-3">
+              Navy veteran. Service-connected disabled veteran. Local operator based in
+                James City County, {BUSINESS_ADDRESS.state}.
+            </p>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <SectionHeader
+            eyebrow="Business story"
+            title="A local operator, not a national lead form."
+            align="split"
+            class="mb-8 flex-col items-start gap-4 lg:mb-10 lg:flex-row lg:items-end"
+          />
+
+          <div class="text-15 leading-body text-ink-soft md:text-16 space-y-5">
+            <p>
+              <strong>Right of Entry Lock &amp; Security</strong> was founded to give
+              people in stressful moments a better option than a regional or national lead-generation call
+              center or a mystery subcontractor. When someone is locked out, dealing
+              with damaged hardware, or trying to secure a property after hours, they
+              need clear answers and competent work, not sales pressure.
+            </p>
+
+            <p>
+              The business is owned and operated by Ron Meck, a Navy veteran and service-connected
+              disabled veteran whose background defines every job he takes on. In the early 2000s,
+              Ron served as a Navy Gunner’s Mate securing beachheads for the U.S. Marines, where
+              his mission was to ensure that critical hardware never failed when lives were on the line.
+              That experience shapes how Ron works today: showing up prepared, communicating directly, and maintaining
+              the kind of discipline that keeps small mistakes from turning into bigger problems. Whether it’s a simple
+              rekey or a high-security installation, Ron treats every door like it’s the most important line of
+              defense—because when it comes to your security, failure is not an option
+            </p>
+
+            <p>
+              Right of Entry is rooted in Toano and James City County, with day-to-day
+              work built around the communities between {BUSINESS_ADDRESS.city},
+              Hampton Roads, and Greater Richmond. That local footprint matters
+              because arrival expectations, travel realities, and neighborhood
+              knowledge are all different when the person answering the phone
+              actually knows the area.
+            </p>
+
+            <p>
+              It is also a family-owned business. That keeps the standard simple:
+              treat people fairly, like family, respect their property, and do work
+              that holds up after the service call is over. Failure is not an option.
+            </p>
+          </div>
+
+          <div class="border-line mt-8 border-t pt-6">
+            <a
+              href={BUSINESS_PHONE_HREF}
+              class="rounded-sharp bg-ink text-13 tracking-button text-paper hover:bg-ink-soft inline-flex items-center gap-2 px-5 py-3 font-medium transition-colors duration-200"
+            >
+              <span class="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
+              <span>Call Ron {BUSINESS_PHONE}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="border-line bg-paper border-b">
+    <Container class="py-16 md:py-20 lg:py-24">
+      <SectionHeader
+        eyebrow="Credentials"
+        title="Visible standards, not vague trust language."
+        description="Only include claims that are accurate. Replace any placeholder detail before launch."
+        class="max-w-3xl"
+      />
+
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {
+          credentials.map(({ detail, icon: Icon, title }) => (
+            <article class="rounded-card border-line bg-surface flex h-full flex-col border p-6">
+              <span class="rounded-card border-line bg-paper text-accent inline-flex h-11 w-11 items-center justify-center border">
+                <Icon className="h-5 w-5" aria-hidden="true" strokeWidth={1.8} />
+              </span>
+              <h2 class="text-18 tracking-h3 text-ink mt-4 leading-tight font-medium">{title}</h2>
+              <p class="text-14 leading-body text-ink-soft mt-3">{detail}</p>
+            </article>
+          ))
+        }
+      </div>
+    </Container>
+  </section>
+
+  <section class="border-line bg-surface border-b">
+    <Container class="py-16 md:py-20 lg:py-24">
+      <SectionHeader
+        eyebrow="Service area"
+        title="Serving Hampton Roads and Greater Richmond."
+        description="Coverage is centered on the regional corridor between Toano, the Peninsula, Southside, and the Richmond metro."
+        class="max-w-3xl"
+      />
+
+      <div class="grid gap-4 md:grid-cols-2">
+        {
+          serviceAreaGroups.map(({ areas, label }) => (
+            <section class="rounded-card border-line bg-paper border p-5">
+              <h2 class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase">
+                {label}
+              </h2>
+              <ul class="text-14 leading-body text-ink-soft mt-4 space-y-2">
+                {areas.map((area) => (
+                  <li>{area}</li>
+                ))}
+              </ul>
+            </section>
+          ))
+        }
+
+        <section class="rounded-card border-line bg-paper border p-5 md:col-span-2">
+          <h2 class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase">
+            Nearby but not listed?
+          </h2>
+          <p class="text-14 leading-body text-ink-soft mt-4">
+            Call anyway. If the job is close to the regular coverage area, availability may still
+            make sense.
+          </p>
+        </section>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+</BaseLayout>

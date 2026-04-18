@@ -1,0 +1,36 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Service area map for Hampton Roads and Greater Richmond</title>
+  <desc id="desc">A simplified regional map highlighting Greater Richmond and Hampton Roads with representative city labels.</desc>
+  <rect width="1200" height="760" rx="24" fill="#FAF9F6"/>
+  <rect x="28" y="28" width="1144" height="704" rx="20" fill="#FFFFFF" stroke="#E5E3DD" stroke-width="2"/>
+  <path d="M122 130C224 118 316 154 384 220C444 278 530 292 616 284C694 276 770 242 864 250C950 256 1028 318 1066 394C1102 464 1092 552 1038 612C980 676 894 688 792 646C700 608 610 600 518 628C410 660 296 666 208 612C102 546 70 420 90 310C106 218 116 172 122 130Z" fill="#F6F3EC" stroke="#E5E3DD" stroke-width="2"/>
+  <path d="M552 450C640 408 726 398 808 420C892 442 956 494 1002 566" stroke="#B8863A" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 12"/>
+  <path d="M642 344C726 320 816 330 902 374C972 410 1026 468 1060 534" stroke="#0F1419" stroke-width="3" stroke-linecap="round" opacity="0.14"/>
+  <ellipse cx="425" cy="270" rx="184" ry="112" fill="#B8863A" fill-opacity="0.12" stroke="#B8863A" stroke-width="3"/>
+  <ellipse cx="866" cy="472" rx="214" ry="124" fill="#0F1419" fill-opacity="0.08" stroke="#0F1419" stroke-width="3"/>
+  <circle cx="390" cy="246" r="9" fill="#B8863A"/>
+  <circle cx="362" cy="292" r="9" fill="#B8863A"/>
+  <circle cx="444" cy="224" r="9" fill="#B8863A"/>
+  <circle cx="820" cy="470" r="9" fill="#0F1419"/>
+  <circle cx="892" cy="430" r="9" fill="#0F1419"/>
+  <circle cx="930" cy="506" r="9" fill="#0F1419"/>
+  <g fill="#0F1419" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">
+    <text x="298" y="150">Greater Richmond</text>
+    <text x="762" y="314">Hampton Roads</text>
+  </g>
+  <g fill="#3A4148" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500">
+    <text x="415" y="246">Richmond</text>
+    <text x="318" y="324">Henrico</text>
+    <text x="444" y="214">Mechanicsville</text>
+    <text x="292" y="572">Toano</text>
+    <text x="688" y="470">Williamsburg</text>
+    <text x="786" y="444">Newport News</text>
+    <text x="848" y="420">Hampton</text>
+    <text x="910" y="448">Norfolk</text>
+    <text x="938" y="520">Virginia Beach</text>
+    <text x="802" y="556">Chesapeake</text>
+  </g>
+  <g fill="#6B7278" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="500">
+    <text x="78" y="664">Representative coverage map only. Call if you are nearby and unsure.</text>
+  </g>
+</svg>
