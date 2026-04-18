@@ -11,5 +11,5 @@ RATE_LIMIT_MAX = "10"
 
 [[kv_namespaces]]
 binding = "RATE_LIMITS"
-id = "replace-with-production-kv-namespace-id"
-preview_id = "replace-with-preview-kv-namespace-id"
+id = "2f229eda03704e56bfd21bee4c80fa5e"
+preview_id = "396c2e3fe7a14769b9ecfa0d84313a00"
