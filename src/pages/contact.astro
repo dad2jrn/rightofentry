@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Container from '../components/ui/Container.astro'
+import Button from '../components/ui/Button.astro'
+import FinalCTA from '../components/sections/FinalCTA.astro'
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_EMAIL,
+  BUSINESS_HOURS_LIST,
+  BUSINESS_NAME,
+  BUSINESS_PHONE,
+  BUSINESS_PHONE_HREF,
+  BUSINESS_SERVICE_AREA,
+  BUSINESS_URL,
+} from '../lib/business-info'
+import { withBase } from '../lib/paths'
+
+const pageTitle = `Contact ${BUSINESS_NAME} | Locksmith in ${BUSINESS_SERVICE_AREA}`
+const pageDescription =
+  'Get in touch with Right of Entry Lock & Security for quotes, scheduling, and non-emergency locksmith questions. For lockouts and urgent service, call now.'
+
+const emergencyMessage =
+  'For lockouts, after-hours access problems, or security issues that need immediate help, call now instead of using the form.'
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={new URL('/contact', BUSINESS_URL).href}
+>
+  <section class="border-line bg-paper border-b" aria-labelledby="contact-page-title">
+    <Container class="py-14 md:py-18 lg:py-20">
+      <div class="max-w-4xl">
+        <p class="text-11 tracking-caps-3 text-accent-dark mb-4 font-medium uppercase">
+          Contact
+        </p>
+        <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
+          <div class="max-w-2xl">
+            <h1
+              id="contact-page-title"
+              class="font-display text-36 tracking-h2 text-ink text-balance font-medium leading-display md:text-52 md:tracking-hero"
+            >
+              Get in touch
+            </h1>
+            <p class="text-16 leading-body text-ink-soft mt-5 max-w-[60ch]">
+              Use the form for quotes, scheduling, and general questions. If this is urgent,
+              skip the form and call directly so you can reach a real locksmith faster.
+            </p>
+          </div>
+
+          <a
+            href={BUSINESS_PHONE_HREF}
+            class="rounded-sharp bg-ink text-13 tracking-button text-paper hover:bg-ink-soft inline-flex items-center gap-2 self-start px-5 py-3 font-medium transition-colors duration-200 lg:self-auto"
+            aria-label={`Call ${BUSINESS_NAME} at ${BUSINESS_PHONE}`}
+          >
+            <span class="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
+            <span>Emergency? Call {BUSINESS_PHONE}</span>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="border-line bg-surface border-b" aria-labelledby="contact-form-section-title">
+    <Container class="py-12 md:py-16 lg:py-20">
+      <div class="grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] lg:items-start">
+        <div class="rounded-frame border-line bg-paper border p-6 md:p-8 lg:p-10">
+          <div class="max-w-2xl">
+            <p
+              id="contact-form-section-title"
+              class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase"
+            >
+              Non-emergency inquiry form
+            </p>
+            <h2 class="text-28 tracking-h2-sm text-ink mt-3 font-medium leading-tight md:text-32">
+              Tell us what you need.
+            </h2>
+            <p class="text-15 leading-body text-ink-soft mt-4 max-w-[56ch]">
+              Story 7.2 will replace this placeholder with the live form. The layout is
+              ready now so the form can drop in without reshaping the page.
+            </p>
+          </div>
+
+          <div class="border-line mt-8 border-t pt-8">
+            <div class="rounded-card border-line bg-surface border p-5 md:p-6">
+              <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
+                Form placeholder
+              </p>
+              <div class="mt-5 grid gap-4 md:grid-cols-2">
+                <div>
+                  <span class="field-label">Name</span>
+                  <div class="field-input text-muted flex items-center">Your name</div>
+                </div>
+                <div>
+                  <span class="field-label">Email</span>
+                  <div class="field-input text-muted flex items-center">name@example.com</div>
+                </div>
+                <div>
+                  <span class="field-label">Phone</span>
+                  <div class="field-input text-muted flex items-center">(optional) Best callback number</div>
+                </div>
+                <div>
+                  <span class="field-label">Service needed</span>
+                  <div class="field-input text-muted flex items-center">Select a service</div>
+                </div>
+                <div class="md:col-span-2">
+                  <span class="field-label">Message</span>
+                  <div class="field-textarea text-muted min-h-32">Describe the job, timing, or question.</div>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <Button href={BUSINESS_PHONE_HREF} variant="primary" size="md">
+                  Call Instead
+                </Button>
+                <p class="text-13 leading-snug text-muted">
+                  Prefer email now?
+                  <a
+                    href={`mailto:${BUSINESS_EMAIL}`}
+                    class="text-ink hover:text-accent ml-1 underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-current"
+                  >
+                    Write to {BUSINESS_EMAIL}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="rounded-frame border-line bg-ink text-paper border p-6 md:p-8 lg:sticky lg:top-28">
+          <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">Call first for urgent help</p>
+          <p class="text-16 leading-body text-paper mt-4">
+            {emergencyMessage}
+          </p>
+
+          <div class="border-paper-15 mt-6 border-t pt-6">
+            <a
+              href={BUSINESS_PHONE_HREF}
+              class="text-paper hover:text-accent inline-flex flex-col gap-2 transition-colors duration-200"
+            >
+              <span class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">
+                Phone
+              </span>
+              <span class="text-28 tracking-h2-sm font-medium leading-tight">{BUSINESS_PHONE}</span>
+              <span class="text-13 leading-snug text-paper-60">
+                Tap to call for lockouts, urgent access issues, or same-day service questions.
+              </span>
+            </a>
+          </div>
+
+          <div class="border-paper-15 mt-6 space-y-6 border-t pt-6">
+            <div>
+              <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">Email</p>
+              <a
+                href={`mailto:${BUSINESS_EMAIL}`}
+                class="text-15 text-paper hover:text-accent mt-2 inline-flex transition-colors duration-200"
+              >
+                {BUSINESS_EMAIL}
+              </a>
+            </div>
+
+            <div>
+              <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">Service area base</p>
+              <address class="text-14 leading-snug text-paper-60 mt-2 not-italic">
+                {BUSINESS_ADDRESS.street}
+                <br />
+                {BUSINESS_ADDRESS.city}, {BUSINESS_ADDRESS.state} {BUSINESS_ADDRESS.zip}
+              </address>
+            </div>
+
+            <div>
+              <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">Hours</p>
+              <ul class="mt-3 space-y-3">
+                {
+                  BUSINESS_HOURS_LIST.map(({ label, hours }) => (
+                    <li class="border-paper-15 flex items-start justify-between gap-4 border-t pt-3 first:border-t-0 first:pt-0">
+                      <span class="text-13 leading-snug text-paper-60">{label}</span>
+                      <span class="text-13 text-paper text-right font-medium">{hours}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          </div>
+
+          <div class="border-paper-15 mt-6 border-t pt-6">
+            <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">
+              Non-emergency request?
+            </p>
+            <p class="text-13 leading-snug text-paper-60 mt-3">
+              The form is being wired up in the next story. Until then, email or call directly
+              so nothing gets missed.
+            </p>
+            <a
+              href={withBase('/services')}
+              class="text-13 tracking-button text-paper hover:text-accent mt-4 inline-flex font-medium transition-colors duration-200"
+            >
+              Review services first
+            </a>
+          </div>
+        </aside>
+      </div>
+    </Container>
+  </section>
+
+  <FinalCTA />
+</BaseLayout>
