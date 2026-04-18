@@ -197,7 +197,7 @@
   .field-error   { font-size: var(--text-12); color: #B13B2E; margin-top: 0.375rem; }
   .field-success { font-size: var(--text-13); color: #3B7A3F; }
 
-  .field-honeypot {
+  .field-meta {
     position: absolute; left: -9999px; top: auto;
     width: 1px; height: 1px; overflow: hidden;
   }

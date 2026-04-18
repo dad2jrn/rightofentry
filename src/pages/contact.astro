@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Container from '../components/ui/Container.astro'
-import Button from '../components/ui/Button.astro'
+import ContactForm from '../components/forms/ContactForm'
 import FinalCTA from '../components/sections/FinalCTA.astro'
 import {
   BUSINESS_ADDRESS,
@@ -82,48 +82,7 @@ const emergencyMessage =
           </div>
 
           <div class="border-line mt-8 border-t pt-8">
-            <div class="rounded-card border-line bg-surface border p-5 md:p-6">
-              <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
-                Form placeholder
-              </p>
-              <div class="mt-5 grid gap-4 md:grid-cols-2">
-                <div>
-                  <span class="field-label">Name</span>
-                  <div class="field-input text-muted flex items-center">Your name</div>
-                </div>
-                <div>
-                  <span class="field-label">Email</span>
-                  <div class="field-input text-muted flex items-center">name@example.com</div>
-                </div>
-                <div>
-                  <span class="field-label">Phone</span>
-                  <div class="field-input text-muted flex items-center">(optional) Best callback number</div>
-                </div>
-                <div>
-                  <span class="field-label">Service needed</span>
-                  <div class="field-input text-muted flex items-center">Select a service</div>
-                </div>
-                <div class="md:col-span-2">
-                  <span class="field-label">Message</span>
-                  <div class="field-textarea text-muted min-h-32">Describe the job, timing, or question.</div>
-                </div>
-              </div>
-
-              <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <Button href={BUSINESS_PHONE_HREF} variant="primary" size="md">
-                  Call Instead
-                </Button>
-                <p class="text-13 leading-snug text-muted">
-                  Prefer email now?
-                  <a
-                    href={`mailto:${BUSINESS_EMAIL}`}
-                    class="text-ink hover:text-accent ml-1 underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-current"
-                  >
-                    Write to {BUSINESS_EMAIL}
-                  </a>
-                </p>
-              </div>
-            </div>
+            <ContactForm client:load phone={BUSINESS_PHONE} phoneHref={BUSINESS_PHONE_HREF} />
           </div>
         </div>
 
@@ -188,8 +147,8 @@ const emergencyMessage =
               Non-emergency request?
             </p>
             <p class="text-13 leading-snug text-paper-60 mt-3">
-              The form is being wired up in the next story. Until then, email or call directly
-              so nothing gets missed.
+              Use the form for scheduling, pricing questions, and routine requests. For urgent
+              work, call instead of waiting on email.
             </p>
             <a
               href={withBase('/services')}
