@@ -3,6 +3,7 @@ import {
   BUSINESS_PHONE,
   BUSINESS_EMAIL,
   BUSINESS_ADDRESS,
+  BUSINESS_SERVICE_AREA,
   BUSINESS_URL,
   BUSINESS_HOURS,
 } from './business-info'
@@ -26,8 +27,9 @@ export function localBusinessSchema() {
     openingHours: BUSINESS_HOURS,
     priceRange: '$$',
     areaServed: [
-      { '@type': 'City', name: 'Hamtpon Roads' },
-      { '@type': 'City', name: 'Greater Richmond' },
+      { '@type': 'AdministrativeArea', name: BUSINESS_SERVICE_AREA },
+      { '@type': 'AdministrativeArea', name: 'Hampton Roads, VA' },
+      { '@type': 'AdministrativeArea', name: 'Greater Richmond, VA' },
       { '@type': 'AdministrativeArea', name: 'James City County, VA' },
     ],
   }

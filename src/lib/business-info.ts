@@ -7,6 +7,7 @@ export const PRIVACY_POLICY_HREF = '#'
 export const BUSINESS_PHONE = '(804) 695-4749'
 export const BUSINESS_PHONE_HREF = 'tel:+18046954749'
 export const BUSINESS_EMAIL = 'info@rightofentrylock.com'
+export const BUSINESS_SERVICE_AREA = 'Hampton Roads/Greater Richmond, VA'
 export const BUSINESS_ADDRESS = {
   street: '3325 Croshaw Ct',
   city: 'Toano',
@@ -15,7 +16,7 @@ export const BUSINESS_ADDRESS = {
   country: 'US',
 } as const
 export const BUSINESS_HOURS = 'Mo-Su 00:00-23:59'
-export const BUSINESS_URL = 'https://rightofentrylock.com'
+export const BUSINESS_URL = 'https://dad2jrn.github.io/rightofentry/'
 
 export const BUSINESS_HOURS_LIST = [
   { label: 'Monday to Sunday', hours: 'Open 24 hours' },

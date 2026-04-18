@@ -3,6 +3,7 @@ import services from '../../content/services.json'
 import Container from '../ui/Container.astro'
 import SectionHeader from '../ui/SectionHeader.astro'
 import ServicesCardGrid from './ServicesCardGrid.astro'
+import { BUSINESS_SERVICE_AREA } from '../../lib/business-info'
 
 type IconName =
   | 'locked-door'
@@ -25,7 +26,7 @@ const visibleServices = serviceCards.filter((service) => service.offered)
     <SectionHeader
       eyebrow="What we do"
       title="Services for every lock and key need"
-      description="Clear, practical locksmith work for homes, businesses, and vehicles across the Hampton Roads and Greater Richmond areas."
+      description={`Clear, practical locksmith work for homes, businesses, and vehicles across ${BUSINESS_SERVICE_AREA}.`}
       class="max-w-3xl"
     />
 

@@ -5,6 +5,7 @@ import '../styles/globals.css'
 
 import interLatinWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2'
 import calSansLatinWoff2 from '@fontsource/cal-sans/files/cal-sans-latin-400-normal.woff2'
+import logoShieldPng from '../../logos/right-of-entry-shield-black.png'
 
 import Header from '../components/layout/Header.astro'
 import Footer from '../components/layout/Footer.astro'
@@ -17,7 +18,7 @@ type Props = {
   canonical?: string
 }
 
-const { title, description, ogImage = '/og/default.png', canonical } = Astro.props
+const { title, description, ogImage = logoShieldPng.src, canonical } = Astro.props
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href
 const ogImageURL = new URL(ogImage, Astro.site).href
@@ -49,8 +50,8 @@ const schema = localBusinessSchema()
     <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Favicons -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href={logoShieldPng.src} />
+    <link rel="apple-touch-icon" href={logoShieldPng.src} />
 
     <!-- Preload hero-visible font weights -->
     <link rel="preload" as="font" type="font/woff2" crossorigin href={interLatinWoff2} />

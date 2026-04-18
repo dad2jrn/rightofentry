@@ -8,6 +8,7 @@ import WhyUs from '../components/sections/WhyUs.astro'
 import Testimonials from '../components/sections/Testimonials'
 import FinalCTA from '../components/sections/FinalCTA.astro'
 import { HOME_SECTION_FLAGS } from '../lib/home-sections'
+import { BUSINESS_SERVICE_AREA, BUSINESS_URL } from '../lib/business-info'
 
 const testimonials = HOME_SECTION_FLAGS.testimonials.enabled
   ? (await getCollection('testimonials'))
@@ -20,8 +21,9 @@ const testimonials = HOME_SECTION_FLAGS.testimonials.enabled
 ---
 
 <BaseLayout
-  title="Right of Entry Lock & Security | 24/7 Locksmith in Hampton Roads and Greater Richmond, VA areas"
-  description="24/7 licensed locksmith serving Southeastern Virginia. Emergency lockouts, rekeying, lock installation, and commercial security."
+  title={`Right of Entry Lock & Security | Locksmith in ${BUSINESS_SERVICE_AREA}`}
+  description={`24/7 licensed locksmith serving ${BUSINESS_SERVICE_AREA}. Emergency lockouts, rekeying, lock installation, vehicle entry, and practical commercial security support.`}
+  canonical={BUSINESS_URL}
 >
   <Hero />
   <Services />
