@@ -1,5 +1,3 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, Phone, X } from 'lucide-react'
 import { useEffect, useId, useRef, useState } from 'react'
 
 import { cn } from '../../lib/cn'
@@ -144,80 +142,106 @@ export function MobileNav({
         className="inline-flex h-12 w-12 items-center justify-center rounded-sharp border border-line bg-surface text-ink transition-colors duration-200 hover:border-ink-soft hover:text-ink-soft"
         onClick={() => setIsOpen((open) => !open)}
       >
-        <Menu className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
+        <svg
+          className="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
       </button>
 
-      <AnimatePresence>
-        {isOpen ? (
-          <motion.div
-            id="mobile-nav-overlay"
-            ref={overlayRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: 'easeOut' }}
-            className="fixed inset-0 z-[60] flex min-h-dvh origin-top flex-col bg-ink px-4 pb-8 pt-4 text-paper"
-          >
-            <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-1 flex-col">
-              <div className="flex items-start justify-between gap-6 border-b border-paper-15 pb-5">
-                <div className="flex flex-col gap-2">
-                  <p
-                    id={titleId}
-                    className="text-11 font-medium uppercase tracking-caps-3 text-paper-60"
-                  >
-                    Navigation
-                  </p>
-                  <p className="text-15 font-semibold tracking-logo text-paper">{businessName}</p>
-                </div>
-
-                <button
-                  type="button"
-                  aria-label="Close navigation menu"
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-sharp border border-paper-15 text-paper transition-colors duration-200 hover:border-paper hover:text-paper-60"
-                  onClick={closeMenu}
+      {isOpen ? (
+        <div
+          id="mobile-nav-overlay"
+          ref={overlayRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
+          className="fixed inset-0 z-[60] flex min-h-dvh flex-col bg-ink px-4 pb-8 pt-4 text-paper motion-safe:animate-[mobile-nav-enter_180ms_ease-out]"
+        >
+          <div className="mx-auto flex w-full max-w-[var(--container-max)] flex-1 flex-col">
+            <div className="flex items-start justify-between gap-6 border-b border-paper-15 pb-5">
+              <div className="flex flex-col gap-2">
+                <p
+                  id={titleId}
+                  className="text-11 font-medium uppercase tracking-caps-3 text-paper-60"
                 >
-                  <X className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
-                </button>
+                  Navigation
+                </p>
+                <p className="text-15 font-semibold tracking-logo text-paper">{businessName}</p>
               </div>
 
-              <nav className="flex flex-1 items-center justify-center" aria-label="Mobile primary">
-                <ul className="flex w-full max-w-sm flex-col items-start gap-6">
-                  {links.map(({ href, label }) => (
-                    <li key={href} className="w-full border-b border-paper-15 pb-6 last:border-b-0 last:pb-0">
-                      <a
-                        href={href}
-                        aria-current={(isActiveLink(href) || isHomeLink(href)) ? 'page' : undefined}
-                        className={cn(
-                          'block text-32 font-display leading-tight tracking-h2-sm text-paper transition-colors duration-200 hover:text-paper-60',
-                          (isActiveLink(href) || isHomeLink(href)) && 'text-accent',
-                        )}
-                        onClick={closeMenu}
-                      >
-                        {label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              <div className="border-t border-paper-15 pt-6">
-                <a
-                  href={phoneHref}
-                  className="inline-flex w-full items-center justify-center gap-3 rounded-sharp bg-accent px-6 py-4 text-13 font-medium tracking-button text-paper transition-colors duration-200 hover:bg-accent-dark"
-                  aria-label={`Call ${businessName} at ${phone}`}
-                  onClick={closeMenu}
+              <button
+                type="button"
+                aria-label="Close navigation menu"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-sharp border border-paper-15 text-paper transition-colors duration-200 hover:border-paper hover:text-paper-60"
+                onClick={closeMenu}
+              >
+                <svg
+                  className="h-5 w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
                 >
-                  <Phone className="h-4 w-4" strokeWidth={1.8} aria-hidden="true" />
-                  <span>Call Now {phone}</span>
-                </a>
-              </div>
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
             </div>
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
+
+            <nav className="flex flex-1 items-center justify-center" aria-label="Mobile primary">
+              <ul className="flex w-full max-w-sm flex-col items-start gap-6">
+                {links.map(({ href, label }) => (
+                  <li key={href} className="w-full border-b border-paper-15 pb-6 last:border-b-0 last:pb-0">
+                    <a
+                      href={href}
+                      aria-current={(isActiveLink(href) || isHomeLink(href)) ? 'page' : undefined}
+                      className={cn(
+                        'block text-32 font-display leading-tight tracking-h2-sm text-paper transition-colors duration-200 hover:text-paper-60',
+                        (isActiveLink(href) || isHomeLink(href)) && 'text-accent',
+                      )}
+                      onClick={closeMenu}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="border-t border-paper-15 pt-6">
+              <a
+                href={phoneHref}
+                className="inline-flex w-full items-center justify-center gap-3 rounded-sharp bg-accent px-6 py-4 text-13 font-medium tracking-button text-ink transition-colors duration-200 hover:bg-accent-dark hover:text-ink"
+                onClick={closeMenu}
+              >
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3.57a2 2 0 0 1-.57 1.72L7.91 10.1a16 16 0 0 0 6 6l1.09-1.08a2 2 0 0 1 1.72-.57l3.57.45A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <span>Call Now {phone}</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }

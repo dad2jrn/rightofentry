@@ -16,7 +16,7 @@ type Props = {
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex items-center gap-1" aria-label={`${rating} out of 5 stars`}>
+    <div className="flex items-center gap-1" role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }, (_, index) => {
         const filled = index < rating
 
@@ -135,10 +135,18 @@ export function Testimonials({ testimonials }: Props) {
                   aria-label={`View testimonial ${index + 1}`}
                   aria-pressed={isActive}
                   className={[
-                    'border-line h-2.5 rounded-full border transition-[width,background-color] duration-200',
-                    isActive ? 'bg-accent w-7' : 'bg-surface w-2.5',
+                    'border-line inline-flex min-h-6 min-w-6 items-center justify-center rounded-full border transition-[background-color,border-color] duration-200',
+                    isActive ? 'border-accent bg-accent/10' : 'bg-surface',
                   ].join(' ')}
-                />
+                >
+                  <span
+                    aria-hidden="true"
+                    className={[
+                      'rounded-full transition-[width,background-color] duration-200',
+                      isActive ? 'bg-accent h-2.5 w-7' : 'bg-line h-2.5 w-2.5',
+                    ].join(' ')}
+                  />
+                </button>
               )
             })}
           </div>
