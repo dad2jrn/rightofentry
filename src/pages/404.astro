@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Container from '../components/ui/Container.astro'
+import Button from '../components/ui/Button.astro'
+import { BUSINESS_URL } from '../lib/business-info'
+
+const pageTitle = 'Access Denied | Right of Entry Lock & Security'
+const pageDescription =
+  'The page or directory you requested is not available on this site.'
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical={new URL('/404', BUSINESS_URL).href}
+>
+  <section class="bg-paper border-line border-b">
+    <Container class="py-20 md:py-28 lg:py-32">
+      <div class="rounded-frame border-line bg-surface mx-auto max-w-3xl border p-8 text-center md:p-12">
+        <p class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase">
+          Unauthorized Request
+        </p>
+        <h1 class="font-display text-36 tracking-h2 text-ink mt-4 font-medium leading-display md:text-52 md:tracking-hero">
+          ACCESS DENIED
+        </h1>
+        <p class="text-16 leading-body text-ink-soft mt-5">
+          Hacker, get lost. This path is not publicly available.
+        </p>
+        <p class="text-14 leading-body text-muted mx-auto mt-3 max-w-[48ch]">
+          If you were looking for locksmith service information, use the main site navigation
+          instead of direct file or directory paths.
+        </p>
+
+        <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <Button href="/" variant="primary" size="lg">Return Home</Button>
+          <Button href="/contact" variant="secondary" size="lg">Contact Us</Button>
+        </div>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
