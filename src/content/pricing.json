@@ -1,0 +1,57 @@
+{
+  "services": [
+    {
+      "slug": "emergency-lockouts",
+      "mode": "starting-at",
+      "display": "Starting at $95",
+      "startingAt": 95,
+      "modifiers": ["emergency-after-hours"]
+    },
+    {
+      "slug": "lock-rekeying",
+      "mode": "range",
+      "display": "$85-$175",
+      "minimum": 85,
+      "maximum": 175,
+      "modifiers": []
+    },
+    {
+      "slug": "lock-installation",
+      "mode": "starting-at",
+      "display": "Starting at $125",
+      "startingAt": 125,
+      "modifiers": []
+    },
+    {
+      "slug": "automotive-keys",
+      "mode": "starting-at",
+      "display": "Starting at $145",
+      "startingAt": 145,
+      "modifiers": []
+    },
+    {
+      "slug": "commercial-security",
+      "mode": "starting-at",
+      "display": "Starting at $150",
+      "startingAt": 150,
+      "modifiers": []
+    },
+    {
+      "slug": "security-assessments",
+      "mode": "range",
+      "display": "$99-$249",
+      "minimum": 99,
+      "maximum": 249,
+      "modifiers": []
+    }
+  ],
+  "modifiers": [
+    {
+      "id": "emergency-after-hours",
+      "label": "Emergency after-hours fee",
+      "display": "+$100 after hours",
+      "amount": 100,
+      "appliesTo": ["emergency-lockouts"]
+    }
+  ]
+}

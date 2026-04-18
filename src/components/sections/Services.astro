@@ -1,24 +1,10 @@
 ---
-import services from '../../content/services.json'
+import { BUSINESS_SERVICE_AREA } from '../../lib/business-info'
+import { featuredServices } from '../../lib/service-catalog'
+
 import Container from '../ui/Container.astro'
 import SectionHeader from '../ui/SectionHeader.astro'
 import ServicesCardGrid from './ServicesCardGrid.astro'
-import { BUSINESS_SERVICE_AREA } from '../../lib/business-info'
-
-type IconName =
-  | 'locked-door'
-  | 'cylinder-key'
-  | 'deadbolt'
-  | 'key-fob'
-  | 'keypad-entry'
-  | 'clipboard-shield'
-
-type ServiceCard = (typeof services)[number] & { icon: IconName }
-
-const serviceCards = services as ServiceCard[]
-
-// Services 5 and 6 remain in `src/content/services.json` but stay hidden until offered publicly.
-const visibleServices = serviceCards.filter((service) => service.offered)
 ---
 
 <section id="services" class="border-line bg-paper border-t">
@@ -30,6 +16,6 @@ const visibleServices = serviceCards.filter((service) => service.offered)
       class="max-w-3xl"
     />
 
-    <ServicesCardGrid services={visibleServices} variant="numbered" />
+    <ServicesCardGrid services={featuredServices} variant="numbered" />
   </Container>
 </section>

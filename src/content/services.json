@@ -2,49 +2,85 @@
   {
     "slug": "emergency-lockouts",
     "title": "Emergency Lockouts",
-    "description": "Residential, commercial, and automotive lockout help with 24/7 response.",
+    "shortDescription": "Residential, commercial, and automotive lockout help with 24/7 response.",
+    "longDescription": [
+      "Locked out of your home, business, or vehicle? Right of Entry focuses on non-destructive entry whenever possible so you can get back inside without turning a lockout into a hardware replacement job.",
+      "Emergency calls are handled with direct communication, realistic arrival expectations, and clear pricing before work starts. After-hours emergency pricing is listed separately so there is no confusion about what changes after normal service hours."
+    ],
     "icon": "locked-door",
-    "href": "/services#emergency-lockouts",
+    "href": "/#emergency-lockouts",
+    "order": 1,
+    "featured": true,
     "offered": true
   },
   {
     "slug": "lock-rekeying",
     "title": "Lock Rekeying",
-    "description": "Keep your existing hardware and change who can access the property.",
+    "shortDescription": "Keep your existing hardware and change who can access the property.",
+    "longDescription": [
+      "Rekeying is often the fastest way to regain control after a move, tenant turnover, lost keys, or staff changes. It lets you keep compatible hardware while changing the keys that operate it.",
+      "The goal is straightforward: confirm what stays, change what needs to change, and leave you with a clean set of working keys and a clear understanding of which locks now match."
+    ],
     "icon": "cylinder-key",
-    "href": "/services#lock-rekeying",
+    "href": "/#lock-rekeying",
+    "order": 2,
+    "featured": true,
     "offered": true
   },
   {
     "slug": "lock-installation",
     "title": "Lock Installation",
-    "description": "Deadbolts, smart locks, and high-security cylinders installed correctly.",
+    "shortDescription": "Deadbolts, smart locks, and high-security cylinders installed correctly.",
+    "longDescription": [
+      "New lock hardware only helps if it is installed square, aligned, and reinforced for the opening it protects. Right of Entry handles replacement deadbolts, fresh installations, and hardware swaps with an emphasis on fit and function.",
+      "If you are comparing options, the install visit can also cover what level of hardware makes sense for the door, frame, and how the property is actually used day to day."
+    ],
     "icon": "deadbolt",
-    "href": "/services#lock-installation",
+    "href": "/#lock-installation",
+    "order": 3,
+    "featured": true,
     "offered": true
   },
   {
     "slug": "automotive-keys",
     "title": "Automotive Keys",
-    "description": "Key duplication, fob programming, and ignition repair for everyday access issues.",
+    "shortDescription": "Key duplication, fob programming, and ignition repair for everyday access issues.",
+    "longDescription": [
+      "Automotive service covers the practical problems that stop a normal day cold: locked keys in the car, a damaged fob, a worn key, or an ignition that is starting to fail.",
+      "Vehicle make, model, and key type change the labor and parts involved, so pricing stays service-specific instead of pretending every automotive job fits one flat number."
+    ],
     "icon": "key-fob",
-    "href": "/services#automotive-keys",
+    "href": "/#automotive-keys",
+    "order": 4,
+    "featured": true,
     "offered": true
   },
   {
     "slug": "commercial-security",
     "title": "Commercial Security",
-    "description": "Master key systems, access control planning, and safe security support.",
+    "shortDescription": "Master key systems, access control planning, and safe security support.",
+    "longDescription": [
+      "Commercial work starts with how the building actually operates: who needs access, when they need it, and where key control or hardware upgrades will reduce risk without slowing down the business.",
+      "This category stays hidden from the public home page until the service package is finalized, but the structure is in place so pricing and scope can be published when it is ready."
+    ],
     "icon": "keypad-entry",
-    "href": "/services#commercial-security",
+    "href": "/#commercial-security",
+    "order": 5,
+    "featured": false,
     "offered": false
   },
   {
     "slug": "security-assessments",
     "title": "Security Assessments",
-    "description": "On-site reviews with practical recommendations for homes and businesses.",
+    "shortDescription": "On-site reviews with practical recommendations for homes and businesses.",
+    "longDescription": [
+      "A security assessment is meant to produce practical next steps, not a vague checklist. The review covers doors, hardware, weak points, and the changes that will make the biggest difference first.",
+      "This service is still staged as not publicly offered, but the content and pricing placeholders are ready so it can be turned on without another data-model change."
+    ],
     "icon": "clipboard-shield",
-    "href": "/services#security-assessments",
+    "href": "/#security-assessments",
+    "order": 6,
+    "featured": false,
     "offered": false
   }
 ]

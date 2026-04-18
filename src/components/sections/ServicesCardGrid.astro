@@ -1,22 +1,15 @@
 ---
 import ServiceIcon from '../ui/ServiceIcon.astro'
+import type { IconName } from '../../lib/service-catalog'
 
 const titleSegments = {
   'Lock Rekeying': ['Lock', 'Rekeying'],
 } as const
 
-type IconName =
-  | 'locked-door'
-  | 'cylinder-key'
-  | 'deadbolt'
-  | 'key-fob'
-  | 'keypad-entry'
-  | 'clipboard-shield'
-
 type ServiceCard = {
   slug: string
   title: string
-  description: string
+  shortDescription: string
   icon: IconName
   href: string
 }
@@ -34,7 +27,7 @@ const { services, variant = 'numbered' } = Astro.props
 {
   variant === 'badge' && (
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-      {services.map(({ description, href, icon, title }) => (
+      {services.map(({ href, icon, shortDescription, title }) => (
         <a
           href={href}
           class="group rounded-frame border-line bg-surface lg:hover:border-ink-soft border p-5 transition-[transform,border-color] duration-200 ease-out md:p-6 lg:hover:-translate-y-1"
@@ -47,7 +40,7 @@ const { services, variant = 'numbered' } = Astro.props
             {title}
           </h3>
 
-          <p class="text-14 leading-body text-ink-soft mt-4 max-w-[22ch]">{description}</p>
+          <p class="text-14 leading-body text-ink-soft mt-4 max-w-[22ch]">{shortDescription}</p>
 
           <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-6 inline-flex items-center gap-2 font-medium transition-colors duration-200">
             Learn more
@@ -62,7 +55,7 @@ const { services, variant = 'numbered' } = Astro.props
 {
   variant === 'numbered' && (
     <div class="grid gap-4 md:grid-cols-2 lg:gap-5 xl:grid-cols-4">
-      {services.map(({ description, href, icon, slug, title }) => (
+      {services.map(({ href, icon, shortDescription, slug, title }) => (
         <a
           href={href}
           class="group rounded-card border-line bg-surface focus-visible:border-accent lg:hover:border-ink-soft flex h-full flex-col border p-5 transition-[border-color,transform,background-color] duration-200 ease-out md:p-6 lg:p-7 lg:hover:-translate-y-1"
@@ -90,7 +83,7 @@ const { services, variant = 'numbered' } = Astro.props
             </span>
           </div>
 
-          <p class="text-14 leading-body text-ink-soft mt-4">{description}</p>
+          <p class="text-14 leading-body text-ink-soft mt-4">{shortDescription}</p>
 
           <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-5 inline-flex items-center gap-2 font-medium transition-colors duration-200">
             Learn more
@@ -105,7 +98,7 @@ const { services, variant = 'numbered' } = Astro.props
 {
   variant === 'technical' && (
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-      {services.map(({ description, href, icon, title }) => (
+      {services.map(({ href, icon, shortDescription, title }) => (
         <a
           href={href}
           class="group rounded-card border-line bg-surface lg:hover:border-ink-soft flex h-full flex-col overflow-hidden border transition-[border-color,transform] duration-200 ease-out lg:hover:-translate-y-1"
@@ -119,7 +112,7 @@ const { services, variant = 'numbered' } = Astro.props
           <div class="flex flex-1 flex-col px-5 py-5 md:px-6 md:py-6">
             <h3 class="text-18 tracking-h3 text-ink max-w-[12ch] font-medium">{title}</h3>
 
-            <p class="text-14 leading-body text-ink-soft mt-3">{description}</p>
+            <p class="text-14 leading-body text-ink-soft mt-3">{shortDescription}</p>
 
             <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-6 inline-flex items-center gap-2 font-medium transition-colors duration-200">
               Review service
