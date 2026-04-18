@@ -34,6 +34,16 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 const getFieldId = (fieldName: FieldName) => `contact-${fieldName}`
 
+const getContactEndpoint = () => {
+  const configuredEndpoint = import.meta.env.PUBLIC_CONTACT_FORM_ENDPOINT?.trim()
+
+  if (!configuredEndpoint) {
+    return '/api/contact'
+  }
+
+  return configuredEndpoint.replace(/\/$/, '')
+}
+
 const validateField = (fieldName: FieldName, values: FormValues): string | undefined => {
   const value = values[fieldName].trim()
 
@@ -72,6 +82,7 @@ const validateForm = (values: FormValues): FormErrors => {
 }
 
 export function ContactForm({ phone, phoneHref }: Props) {
+  const contactEndpoint = getContactEndpoint()
   const [values, setValues] = useState<FormValues>(initialValues)
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -161,7 +172,7 @@ export function ContactForm({ phone, phoneHref }: Props) {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(contactEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -177,12 +188,21 @@ export function ContactForm({ phone, phoneHref }: Props) {
       })
 
       if (!response.ok) {
-        throw new Error('Request failed')
+        const payload = (await response.json().catch(() => null)) as
+          | { error?: string }
+          | null
+
+        throw new Error(payload?.error ?? 'Request failed')
       }
 
       setIsSubmitted(true)
       setValues(initialValues)
-    } catch {
+    } catch (error) {
+      if (error instanceof Error && error.message) {
+        setSubmitError(error.message)
+        return
+      }
+
       setSubmitError(
         'We could not send your message online yet. Try again, or call if the job is time-sensitive.',
       )

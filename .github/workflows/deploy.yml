@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUSKY: 0
+      PUBLIC_CONTACT_FORM_ENDPOINT: ${{ vars.PUBLIC_CONTACT_FORM_ENDPOINT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -1,0 +1,15 @@
+name = "contact-form-handler"
+main = "src/index.ts"
+compatibility_date = "2026-04-18"
+
+[observability]
+enabled = true
+
+[vars]
+ALLOWED_ORIGINS = "https://rightofentrylock.com,https://www.rightofentrylock.com,http://localhost:4321"
+RATE_LIMIT_MAX = "10"
+
+[[kv_namespaces]]
+binding = "RATE_LIMITS"
+id = "replace-with-production-kv-namespace-id"
+preview_id = "replace-with-preview-kv-namespace-id"

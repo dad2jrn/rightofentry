@@ -2,7 +2,7 @@
 
 Marketing website for Right of Entry Lock & Security — a disabled veteran-owned locksmith and security services business serving Williamsburg, Toano, and James City County, VA.
 
-**Stack:** Astro 6 · React 18 · Tailwind CSS v4 · TypeScript (strict) · GitHub Pages
+**Stack:** Astro 6 · React 18 · Tailwind CSS v4 · TypeScript (strict) · GitHub Pages + Cloudflare Worker contact API
 
 ## Local development
 
@@ -43,6 +43,10 @@ The GitHub Actions `gitleaks.yml` workflow runs a server-side scan on every push
 Pushes to `main` deploy to GitHub Pages via the Actions workflow in `.github/workflows/deploy.yml` (added in Story 1.2).
 
 The site targets `https://rightofentrylock.com` once the custom domain is configured (Story 1.3).
+
+The contact form backend is deployed separately as a Cloudflare Worker in [`workers/contact-form-handler`](./workers/contact-form-handler). Build-time configuration for the frontend endpoint uses `PUBLIC_CONTACT_FORM_ENDPOINT`.
+
+Full setup steps for Cloudflare, Resend, and GitHub Actions secrets live in [`docs/contact-form-worker.md`](./docs/contact-form-worker.md).
 
 ## Project plan
 

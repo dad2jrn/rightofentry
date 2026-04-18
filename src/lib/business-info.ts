@@ -16,7 +16,7 @@ export const BUSINESS_ADDRESS = {
   country: 'US',
 } as const
 export const BUSINESS_HOURS = 'Mo-Su 00:00-23:59'
-export const BUSINESS_URL = 'https://dad2jrn.github.io/rightofentry/'
+export const BUSINESS_URL = 'https://rightofentrylock.com'
 
 export const BUSINESS_HOURS_LIST = [
   { label: 'Monday to Sunday', hours: 'Open 24 hours' },

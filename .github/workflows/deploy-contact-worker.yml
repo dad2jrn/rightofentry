@@ -1,0 +1,36 @@
+name: Deploy Contact Worker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/deploy-contact-worker.yml'
+      - 'workers/contact-form-handler/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: workers/contact-form-handler
+          command: deploy
+          secrets: |
+            RESEND_API_KEY
+            TO_EMAIL
+            FROM_EMAIL
+        env:
+          RESEND_API_KEY: ${{ secrets.CLOUDFLARE_WORKER_RESEND_API_KEY }}
+          TO_EMAIL: ${{ secrets.CLOUDFLARE_WORKER_TO_EMAIL }}
+          FROM_EMAIL: ${{ secrets.CLOUDFLARE_WORKER_FROM_EMAIL }}

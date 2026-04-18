@@ -4,9 +4,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // site: 'https://roelock.com',
-  site: 'https://dad2jrn.github.io',
-  base: '/rightofentry',
+  site: 'https://rightofentrylock.com',
   output: 'static',
   integrations: [react(), sitemap()],
   vite: {
