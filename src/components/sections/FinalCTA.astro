@@ -1,0 +1,70 @@
+---
+import Container from '../ui/Container.astro'
+import Button from '../ui/Button.astro'
+import { BUSINESS_PHONE, BUSINESS_PHONE_HREF } from '../../lib/business-info'
+import { withBase } from '../../lib/paths'
+---
+
+<section
+  id="final-cta"
+  class="border-paper-15 bg-ink text-paper border-t"
+  aria-labelledby="final-cta-title"
+>
+  <Container class="py-16 text-center md:py-20 lg:py-24">
+    <div class="mx-auto flex max-w-3xl flex-col items-center">
+      <p class="text-11 tracking-caps-3 text-paper-60 mb-4 font-medium uppercase">
+        Need a locksmith now?
+      </p>
+
+      <h2
+        id="final-cta-title"
+        class="font-display text-28 tracking-h2-sm max-w-[12ch] text-balance font-medium leading-tight md:text-32 lg:text-36"
+      >
+        Locked out? Let&apos;s get you back in.
+      </h2>
+
+      <p class="text-14 leading-body text-paper-60 mt-5 max-w-2xl md:text-16">
+        Call for emergency lockouts, rekeys, lock installation, and practical help from a real
+        local locksmith.
+      </p>
+
+      <div class="mt-8">
+        <Button
+          href={BUSINESS_PHONE_HREF}
+          variant="primary"
+          size="lg"
+          class="border-paper bg-paper text-ink hover:bg-paper/90 min-w-[17rem] px-8"
+          ariaLabel={`Call Right of Entry Lock & Security at ${BUSINESS_PHONE}`}
+        >
+          <span class="inline-flex items-center gap-2">
+            <svg
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3.57a2 2 0 0 1-.57 1.72L7.91 10.1a16 16 0 0 0 6 6l1.09-1.08a2 2 0 0 1 1.72-.57l3.57.45A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>Call {BUSINESS_PHONE}</span>
+          </span>
+        </Button>
+      </div>
+
+      <p class="text-13 text-paper-60 mt-5">
+        Prefer to write?
+        <a
+          href={withBase('/#contact')}
+          class="text-paper hover:text-accent ml-1 underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-current"
+        >
+          Contact us
+        </a>
+      </p>
+    </div>
+  </Container>
+</section>
