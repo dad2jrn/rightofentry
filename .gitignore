@@ -62,6 +62,7 @@ secrets/
 *.njsproj
 *.sln
 *.sw?
+.continue/
 
 # Chrome Lighhouse
 lighthouse/
