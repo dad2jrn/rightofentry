@@ -1,0 +1,62 @@
+---
+import Container from '../ui/Container.astro'
+import Logo from '../brand/Logo.astro'
+import { BUSINESS_NAME } from '../../lib/business-info'
+---
+
+<section class="bg-paper text-ink relative min-h-[calc(100svh-1px)] overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgb(184_134_58_/_0.2),_transparent_38%),linear-gradient(180deg,_rgb(15_20_25_/_0.04),_transparent_34%)]"
+    aria-hidden="true"
+  >
+  </div>
+
+  <Container class="relative flex min-h-[100svh] items-center py-16">
+    <div class="grid w-full gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)] lg:items-end">
+      <div class="max-w-3xl">
+        <div class="rounded-card border-line bg-surface/88 inline-flex items-center border px-4 py-2 backdrop-blur-sm">
+          <span class="bg-accent mr-3 inline-block h-2 w-2 rounded-full" aria-hidden="true"></span>
+          <span class="text-12 tracking-caps-2 font-medium uppercase">Site maintenance</span>
+        </div>
+
+        <h1 class="font-display leading-hero mt-6 max-w-[11ch] text-[3.2rem] font-medium tracking-[0.04em] sm:text-[3.7rem]">
+          We&rsquo;re temporarily offline for maintenance.
+        </h1>
+
+        <p class="text-16 text-ink-soft mt-6 max-w-2xl leading-[1.7] sm:text-18">
+          This website is currently unavailable while updates are in progress. Public information,
+          contact options, and service details are not being published at this time.
+        </p>
+
+        <p class="text-14 text-muted mt-6 max-w-xl leading-[1.7]">
+          Please check back later for reopening updates.
+        </p>
+      </div>
+
+      <div class="rounded-frame border-line bg-ink text-paper relative overflow-hidden border px-8 py-10 shadow-[0_28px_80px_rgb(15_20_25_/_0.16)]">
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgb(184_134_58_/_0.22),_transparent_42%),linear-gradient(180deg,_rgb(255_255_255_/_0.06),_transparent_36%)]"
+          aria-hidden="true"
+        >
+        </div>
+
+        <div class="relative">
+          <Logo class="w-[184px]" />
+
+          <div class="border-paper-15 mt-10 border-t pt-6">
+            <p class="text-11 tracking-caps-3 text-paper/62 font-medium uppercase">Status</p>
+            <p class="text-15 mt-3 leading-snug text-paper">Temporarily unavailable</p>
+          </div>
+
+          <div class="border-paper-15 mt-6 border-t pt-6">
+            <p class="text-11 tracking-caps-3 text-paper/62 font-medium uppercase">Notice</p>
+            <p class="text-14 mt-3 leading-[1.7] text-paper/72">
+              {BUSINESS_NAME} is not accepting inquiries through this website while maintenance mode
+              is active.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

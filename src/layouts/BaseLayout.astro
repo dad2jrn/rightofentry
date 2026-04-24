@@ -9,7 +9,10 @@ import logoShieldPng from '../../logos/right-of-entry-shield-black.png'
 
 import Header from '../components/layout/Header.astro'
 import Footer from '../components/layout/Footer.astro'
+import MaintenanceMode from '../components/site/MaintenanceMode.astro'
+import { BUSINESS_NAME } from '../lib/business-info'
 import { localBusinessSchema } from '../lib/structured-data'
+import { getSiteEnabled } from '../lib/site-settings'
 
 type Props = {
   title: string
@@ -27,9 +30,15 @@ const {
   robots,
 } = Astro.props
 
+const siteEnabled = getSiteEnabled()
+const effectiveTitle = siteEnabled ? title : `${BUSINESS_NAME} | Site Maintenance`
+const effectiveDescription = siteEnabled
+  ? description
+  : `${BUSINESS_NAME} is temporarily unavailable while site maintenance is in progress.`
+const effectiveRobots = siteEnabled ? robots : 'noindex, nofollow'
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href
 const ogImageURL = new URL(ogImage, Astro.site).href
-const schema = localBusinessSchema()
+const schema = siteEnabled ? localBusinessSchema() : null
 ---
 
 <!doctype html>
@@ -37,24 +46,24 @@ const schema = localBusinessSchema()
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    {description && <meta name="description" content={description} />}
-    {robots && <meta name="robots" content={robots} />}
+    <title>{effectiveTitle}</title>
+    {effectiveDescription && <meta name="description" content={effectiveDescription} />}
+    {effectiveRobots && <meta name="robots" content={effectiveRobots} />}
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    {description && <meta property="og:description" content={description} />}
+    <meta property="og:title" content={effectiveTitle} />
+    {effectiveDescription && <meta property="og:description" content={effectiveDescription} />}
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:title" content={effectiveTitle} />
+    {effectiveDescription && <meta name="twitter:description" content={effectiveDescription} />}
     <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Favicons -->
@@ -66,14 +75,24 @@ const schema = localBusinessSchema()
     <link rel="preload" as="font" type="font/woff2" crossorigin href={calSansLatinWoff2} />
 
     <!-- LocalBusiness structured data -->
-    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <Header />
-    <main id="main">
-      <slot />
-    </main>
-    <Footer />
+    {
+      siteEnabled ? (
+        <>
+          <Header />
+          <main id="main">
+            <slot />
+          </main>
+          <Footer />
+        </>
+      ) : (
+        <main id="main">
+          <MaintenanceMode />
+        </main>
+      )
+    }
   </body>
 </html>

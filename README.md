@@ -48,6 +48,20 @@ The contact form backend is deployed separately as a Cloudflare Worker in [`work
 
 Full setup steps for Cloudflare, Resend, and GitHub Actions secrets live in [`docs/contact-form-worker.md`](./docs/contact-form-worker.md).
 
+## Maintenance mode
+
+Site availability is controlled by [`src/content/site-settings.json`](./src/content/site-settings.json).
+
+```json
+{
+  "site_enabled": "true"
+}
+```
+
+Set `"site_enabled": "false"` to put the entire site into maintenance mode. In maintenance mode, the shared layout replaces all public routes with a branded maintenance screen and suppresses contact details, service-marketing content, and LocalBusiness structured data.
+
+Because this Astro site is built as static output, changing the JSON value requires a rebuild and redeploy before the live site updates.
+
 ## Project plan
 
 See `PLAN.md` for the full story-by-story build plan and `STYLE.md` for the design system and token reference.
