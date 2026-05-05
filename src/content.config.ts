@@ -15,3 +15,5 @@ const testimonials = defineCollection({
 export const collections = {
   testimonials,
 }
+
+

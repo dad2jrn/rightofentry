@@ -61,7 +61,7 @@ const validateField = (fieldName: FieldName, values: FormValues): string | undef
       if (!value) return 'Enter a message.'
       return value.length >= 10 ? undefined : 'Message must be at least 10 characters.'
     case 'reference':
-      return values.reference ? 'Invalid submission.' : undefined
+      return undefined
     default:
       return undefined
   }
