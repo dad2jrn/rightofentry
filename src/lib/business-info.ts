@@ -1,6 +1,10 @@
 export const BUSINESS_NAME = 'Right of Entry Lock & Security'
 export const BUSINESS_TAGLINE = 'Calm, practical locksmith service for homes, vehicles, and small businesses.'
 export const BUSINESS_LICENSE_STATUS = 'Licensed & Insured'
+export const BUSINESS_DCJS_NUMBER = '11-30690'
+export const BUSINESS_DCJS_DISPLAY = `DCJS# ${BUSINESS_DCJS_NUMBER}`
+export const BUSINESS_VA_LICENSE_ID = '12018769'
+export const BUSINESS_VA_LICENSE_DISPLAY = `VA Business License ID: ${BUSINESS_VA_LICENSE_ID}`
 export const PRIVACY_POLICY_HREF = '#'
 
 // TODO: Replace placeholders with real contact info before launch (Story 8.6)

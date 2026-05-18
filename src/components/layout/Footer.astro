@@ -1,6 +1,7 @@
 ---
 import Container from '../ui/Container.astro'
 import {
+  BUSINESS_DCJS_DISPLAY,
   BUSINESS_EMAIL,
   BUSINESS_HOURS_LIST,
   BUSINESS_LICENSE_STATUS,
@@ -10,6 +11,7 @@ import {
   BUSINESS_SOCIAL_LINKS,
   BUSINESS_TAGLINE,
   BUSINESS_URL,
+  BUSINESS_VA_LICENSE_DISPLAY,
   PRIVACY_POLICY_HREF,
 } from '../../lib/business-info'
 import { withBase } from '../../lib/paths'
@@ -77,7 +79,7 @@ const socialIcons = {
         <div
           class="rounded-card border-paper-15 text-12 tracking-caps-2 text-paper-60 mt-6 inline-flex items-center border px-3 py-2 font-medium uppercase"
         >
-          Licensing badge placeholder
+          {BUSINESS_LICENSE_STATUS} · {BUSINESS_DCJS_DISPLAY} · {BUSINESS_VA_LICENSE_DISPLAY}
         </div>
       </div>
 
@@ -149,7 +151,7 @@ const socialIcons = {
         >. All rights reserved. Designed and developed by Ron Meck.
       </p>
       <div class="flex flex-col gap-3 md:flex-row md:items-center md:gap-6">
-        <p>{BUSINESS_LICENSE_STATUS}</p>
+        <p>{BUSINESS_LICENSE_STATUS} · {BUSINESS_DCJS_DISPLAY} · {BUSINESS_VA_LICENSE_DISPLAY}</p>
         <a href={PRIVACY_POLICY_HREF} class="hover:text-accent transition-colors duration-200">
           Privacy Policy
         </a>
