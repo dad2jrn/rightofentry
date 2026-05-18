@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 15 280 110" width="280" height="110">
+  <title>Right of Entry Lock &amp; Security</title>
+  <desc>Shield with key — black version for light backgrounds</desc>
+  <!-- Shield -->
+  <path d="M 65 22 L 105 34 L 105 68 Q 105 94 65 114 Q 25 94 25 68 L 25 34 Z"
+        fill="none" stroke="#0F1419" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Key bow (outer circle) -->
+  <circle cx="65" cy="55" r="9" fill="none" stroke="#0F1419" stroke-width="2.5"/>
+  <!-- Key bow (inner dot) -->
+  <circle cx="65" cy="55" r="2.5" fill="#0F1419"/>
+  <!-- Key shaft -->
+  <rect x="63.5" y="64" width="3" height="28" fill="#0F1419"/>
+  <!-- Key teeth -->
+  <rect x="66.5" y="80" width="7" height="2.5" fill="#0F1419"/>
+  <rect x="66.5" y="86" width="5" height="2.5" fill="#0F1419"/>
+  <!-- Wordmark -->
+  <text x="128" y="62" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="15" font-weight="600" fill="#0F1419" letter-spacing="-0.3">Right of Entry</text>
+  <!-- Brass divider line -->
+  <line x1="128" y1="72" x2="220" y2="72" stroke="#B8863A" stroke-width="1"/>
+  <!-- Subtitle -->
+  <text x="128" y="87" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+        font-size="8" font-weight="500" fill="rgba(15,20,25,0.6)" letter-spacing="2.5">LOCK &amp; SECURITY</text>
+</svg>
