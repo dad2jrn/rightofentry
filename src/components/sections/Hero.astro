@@ -4,11 +4,7 @@ import { Image } from 'astro:assets'
 import Container from '../ui/Container.astro'
 import Button from '../ui/Button.astro'
 import heroPhoto from '../../assets/images/hero-locksmith.jpg'
-import {
-  BUSINESS_PHONE,
-  BUSINESS_PHONE_HREF,
-  BUSINESS_SERVICE_AREA,
-} from '../../lib/business-info'
+import { BUSINESS_PHONE, BUSINESS_PHONE_HREF, BUSINESS_SERVICE_AREA } from '../../lib/business-info'
 ---
 
 <section id="about" class="bg-ink text-paper relative overflow-hidden py-24 lg:py-32">
@@ -30,13 +26,12 @@ import {
         <h1
           class="font-display leading-hero text-paper max-w-[12ch] text-[3.25rem] font-medium tracking-[0.05em] sm:text-[3.6rem] xl:text-[4.15rem]"
         >
-          Locksmith &amp; Security Services you can call at<br />2 AM.
+          Locksmith &amp; Security Services for urgent access needs.
         </h1>
 
         <p class="text-16 leading-body text-paper/78 sm:text-18 mt-6 max-w-2xl">
-          Licensed, insured, and local. Emergency lockouts, rekeys, lock installation, and security
-          assessments for homes, vehicles, and businesses across Hampton Roads and Greater
-          Richmond.
+          Licensed, insured, and local. Emergency lockouts, vehicle lockouts, rekeys, and lock
+          installation for homes and businesses across Hampton Roads and Greater Richmond.
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
@@ -47,7 +42,6 @@ import {
             class="text-ink justify-center shadow-[0_18px_40px_rgb(184_134_58_/_0.3)]"
           >
             <span class="text-ink inline-flex items-center gap-2">
-              <span class="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
               <svg
                 class="text-ink h-4 w-4"
                 viewBox="0 0 24 24"
@@ -77,8 +71,8 @@ import {
         <div
           class="text-12 tracking-caps-2 text-paper/70 mt-8 flex flex-wrap gap-x-8 gap-y-3 font-medium uppercase"
         >
-          <span>Licensed in Virginia</span>
-          <span>Insured &amp; Bonded</span>
+          <span>Licensed & Insured in Virginia</span>
+          <span></span>
           <span>Disabled Veteran-Owned</span>
         </div>
       </div>

@@ -114,4 +114,6 @@ export const allServices: ServiceRecord[] = baseServices
   })
   .sort((left, right) => left.order - right.order)
 
-export const featuredServices = allServices.filter((service) => service.featured && service.offered)
+export const offeredServices = allServices.filter((service) => service.offered)
+
+export const featuredServices = offeredServices.filter((service) => service.featured)

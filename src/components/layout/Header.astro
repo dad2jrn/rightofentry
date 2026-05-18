@@ -85,7 +85,6 @@ const isActiveLink = (href: string) => {
       class="rounded-sharp bg-ink text-13 tracking-button text-paper hover:bg-ink-soft hidden items-center gap-2 px-5 py-2.5 font-medium transition-colors duration-200 md:inline-flex"
       aria-label={`Call ${BUSINESS_NAME} at ${BUSINESS_PHONE}`}
     >
-      <span class="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
       <svg
         class="h-4 w-4"
         viewBox="0 0 24 24"
@@ -100,7 +99,7 @@ const isActiveLink = (href: string) => {
           d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.45 3.57a2 2 0 0 1-.57 1.72L7.91 10.1a16 16 0 0 0 6 6l1.09-1.08a2 2 0 0 1 1.72-.57l3.57.45A2 2 0 0 1 22 16.92z"
         ></path>
       </svg>
-      <span>Call Now {BUSINESS_PHONE}</span>
+      <span>Call {BUSINESS_PHONE}</span>
     </a>
   </Container>
 </header>

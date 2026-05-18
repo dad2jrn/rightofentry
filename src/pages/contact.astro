@@ -31,20 +31,18 @@ const emergencyMessage =
   <section class="border-line bg-paper border-b" aria-labelledby="contact-page-title">
     <Container class="py-14 md:py-18 lg:py-20">
       <div class="max-w-4xl">
-        <p class="text-11 tracking-caps-3 text-accent-dark mb-4 font-medium uppercase">
-          Contact
-        </p>
+        <p class="text-11 tracking-caps-3 text-accent-dark mb-4 font-medium uppercase">Contact</p>
         <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
           <div class="max-w-2xl">
             <h1
               id="contact-page-title"
-              class="font-display text-36 tracking-h2 text-ink text-balance font-medium leading-display md:text-52 md:tracking-hero"
+              class="font-display text-36 tracking-h2 text-ink leading-display md:text-52 md:tracking-hero font-medium text-balance"
             >
               Get in touch
             </h1>
             <p class="text-16 leading-body text-ink-soft mt-5 max-w-[60ch]">
-              Use the form for quotes, scheduling, and general questions. If this is urgent,
-              skip the form and call directly so you can reach a real locksmith faster.
+              Use the form for quotes, scheduling, and general questions. If this is urgent, skip
+              the form and call directly so you can reach a real locksmith faster.
             </p>
           </div>
 
@@ -53,7 +51,6 @@ const emergencyMessage =
             class="rounded-sharp bg-ink text-13 tracking-button text-paper hover:bg-ink-soft inline-flex items-center gap-2 self-start px-5 py-3 font-medium transition-colors duration-200 lg:self-auto"
             aria-label={`Call ${BUSINESS_NAME} at ${BUSINESS_PHONE}`}
           >
-            <span class="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
             <span>Emergency? Call {BUSINESS_PHONE}</span>
           </a>
         </div>
@@ -72,12 +69,12 @@ const emergencyMessage =
             >
               Non-emergency inquiry form
             </p>
-            <h2 class="text-28 tracking-h2-sm text-ink mt-3 font-medium leading-tight md:text-32">
+            <h2 class="text-28 tracking-h2-sm text-ink md:text-32 mt-3 leading-tight font-medium">
               Tell us what you need.
             </h2>
             <p class="text-15 leading-body text-ink-soft mt-4 max-w-[56ch]">
-              Use this form for quotes, scheduling, and routine locksmith questions. Urgent
-              lockouts and immediate security issues should still go straight to the phone.
+              Use this form for quotes, scheduling, and routine locksmith questions. Urgent lockouts
+              and immediate security issues should still go straight to the phone.
             </p>
           </div>
 
@@ -86,8 +83,12 @@ const emergencyMessage =
           </div>
         </div>
 
-        <aside class="rounded-frame border-line bg-ink text-paper border p-6 md:p-8 lg:sticky lg:top-28">
-          <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">Call first for urgent help</p>
+        <aside
+          class="rounded-frame border-line bg-ink text-paper border p-6 md:p-8 lg:sticky lg:top-28"
+        >
+          <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">
+            Call first for urgent help
+          </p>
           <p class="text-16 leading-body text-paper mt-4">
             {emergencyMessage}
           </p>
@@ -100,8 +101,8 @@ const emergencyMessage =
               <span class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">
                 Phone
               </span>
-              <span class="text-28 tracking-h2-sm font-medium leading-tight">{BUSINESS_PHONE}</span>
-              <span class="text-13 leading-snug text-paper-60">
+              <span class="text-28 tracking-h2-sm leading-tight font-medium">{BUSINESS_PHONE}</span>
+              <span class="text-13 text-paper-60 leading-snug">
                 Tap to call for lockouts, urgent access issues, or same-day service questions.
               </span>
             </a>
@@ -124,7 +125,7 @@ const emergencyMessage =
                 {
                   BUSINESS_HOURS_LIST.map(({ label, hours }) => (
                     <li class="border-paper-15 flex items-start justify-between gap-4 border-t pt-3 first:border-t-0 first:pt-0">
-                      <span class="text-13 leading-snug text-paper-60">{label}</span>
+                      <span class="text-13 text-paper-60 leading-snug">{label}</span>
                       <span class="text-13 text-paper text-right font-medium">{hours}</span>
                     </li>
                   ))
@@ -137,9 +138,9 @@ const emergencyMessage =
             <p class="text-11 tracking-caps-3 text-paper-60 font-medium uppercase">
               Non-emergency request?
             </p>
-            <p class="text-13 leading-snug text-paper-60 mt-3">
-              Use the form for scheduling, pricing questions, and routine requests. For urgent
-              work, call instead of waiting on email.
+            <p class="text-13 text-paper-60 mt-3 leading-snug">
+              Use the form for scheduling, pricing questions, and routine requests. For urgent work,
+              call instead of waiting on email.
             </p>
             <a
               href={withBase('/services')}

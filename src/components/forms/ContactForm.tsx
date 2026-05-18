@@ -3,9 +3,10 @@ import { type ChangeEvent, type FormEvent, type FocusEvent, useState } from 'rea
 import { cn } from '../../lib/cn'
 
 const SERVICE_OPTIONS = [
+  'Emergency lockout',
+  'Vehicle lockout',
   'Rekey',
   'Lock installation',
-  'Commercial inquiry',
   'Other',
 ] as const
 
@@ -229,7 +230,6 @@ export function ContactForm({ phone, phoneHref }: Props) {
             href={phoneHref}
             className="rounded-sharp bg-ink text-13 tracking-button text-paper hover:bg-ink-soft inline-flex items-center justify-center gap-2 px-6 py-3.5 font-medium transition-colors duration-200"
           >
-            <span className="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
             <span>Call {phone}</span>
           </a>
           <button

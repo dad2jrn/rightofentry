@@ -24,7 +24,7 @@ import {
 } from '../lib/business-info'
 
 const heroDescription =
-  'Right of Entry Lock & Security is a local locksmith business built around straightforward communication, accountable work, and practical security help for homes, vehicles, and small businesses across Hampton Roads and Greater Richmond.'
+  'Right of Entry Lock & Security is a local locksmith business built around straightforward communication, accountable work, emergency lockouts, and practical security help across Hampton Roads and Greater Richmond.'
 
 const credentials = [
   {
@@ -34,13 +34,8 @@ const credentials = [
   },
   {
     title: 'General liability insured',
-    detail: 'Coverage in place for residential, vehicle, and light commercial work.',
+    detail: 'Coverage in place for residential, vehicle lockout, and light commercial work.',
     icon: ShieldCheck,
-  },
-  {
-    title: 'Bonded service',
-    detail: 'Accountable workmanship with documented business identity behind the job.',
-    icon: ShieldEllipsis,
   },
   {
     title: 'Disabled veteran-owned business',
@@ -144,8 +139,8 @@ const serviceAreaGroups = [
               Owner background
             </p>
             <p class="text-14 leading-body text-ink-soft mt-3">
-              Navy veteran. Service-connected disabled veteran. Local operator based in
-                James City County, {BUSINESS_ADDRESS.state}.
+              Navy veteran. Service-connected disabled veteran. Local operator based in James City
+              County, {BUSINESS_ADDRESS.state}.
             </p>
           </div>
         </div>
@@ -160,37 +155,36 @@ const serviceAreaGroups = [
 
           <div class="text-15 leading-body text-ink-soft md:text-16 space-y-5">
             <p>
-              <strong>Right of Entry Lock &amp; Security</strong> was founded to give
-              people in stressful moments a better option than a regional or national lead-generation call
-              center or a mystery subcontractor. When someone is locked out, dealing
-              with damaged hardware, or trying to secure a property after hours, they
-              need clear answers and competent work, not sales pressure.
+              <strong>Right of Entry Lock &amp; Security</strong> was founded to give people in stressful
+              moments a better option than a regional or national lead-generation call center or a mystery
+              subcontractor. When someone is locked out, dealing with damaged hardware, or trying to secure
+              a property after hours, they need clear answers and competent work, not sales pressure.
             </p>
 
             <p>
               The business is owned and operated by Ron Meck, a Navy veteran and service-connected
               disabled veteran whose background defines every job he takes on. In the early 2000s,
-              Ron served as a Navy Gunner’s Mate securing beachheads for the U.S. Marines, where
-              his mission was to ensure that critical hardware never failed when lives were on the line.
-              That experience shapes how Ron works today: showing up prepared, communicating directly, and maintaining
-              the kind of discipline that keeps small mistakes from turning into bigger problems. Whether it’s a simple
-              rekey or a high-security installation, Ron treats every door like it’s the most important line of
+              Ron served as a Navy Gunner’s Mate securing beachheads for the U.S. Marines, where his
+              mission was to ensure that critical hardware never failed when lives were on the line.
+              That experience shapes how Ron works today: showing up prepared, communicating
+              directly, and maintaining the kind of discipline that keeps small mistakes from
+              turning into bigger problems. Whether it’s a simple rekey or a high-security
+              installation, Ron treats every door like it’s the most important line of
               defense—because when it comes to your security, failure is not an option
             </p>
 
             <p>
-              Right of Entry is rooted in Toano and James City County, with day-to-day
-              work built around the communities between {BUSINESS_ADDRESS.city},
-              Hampton Roads, and Greater Richmond. That local footprint matters
-              because arrival expectations, travel realities, and neighborhood
-              knowledge are all different when the person answering the phone
+              Right of Entry is rooted in Toano and James City County, with day-to-day work built
+              around the communities between {BUSINESS_ADDRESS.city}, Hampton Roads, and Greater
+              Richmond. That local footprint matters because arrival expectations, travel realities,
+              and neighborhood knowledge are all different when the person answering the phone
               actually knows the area.
             </p>
 
             <p>
-              It is also a family-owned business. That keeps the standard simple:
-              treat people fairly, like family, respect their property, and do work
-              that holds up after the service call is over. Failure is not an option.
+              It is also a family-owned business. That keeps the standard simple: treat people
+              fairly, like family, respect their property, and do work that holds up after the
+              service call is over. Failure is not an option.
             </p>
           </div>
 
@@ -199,7 +193,6 @@ const serviceAreaGroups = [
               href={BUSINESS_PHONE_HREF}
               class="rounded-sharp bg-ink text-13 tracking-button text-paper hover:bg-ink-soft inline-flex items-center gap-2 px-5 py-3 font-medium transition-colors duration-200"
             >
-              <span class="bg-live h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
               <span>Call Ron {BUSINESS_PHONE}</span>
             </a>
           </div>

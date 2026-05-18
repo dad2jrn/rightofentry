@@ -4,7 +4,7 @@ import Button from '../components/ui/Button.astro'
 import Container from '../components/ui/Container.astro'
 import ServicesCardGrid from '../components/sections/ServicesCardGrid.astro'
 import SectionHeader from '../components/ui/SectionHeader.astro'
-import { allServices } from '../lib/service-catalog'
+import { offeredServices } from '../lib/service-catalog'
 import { withBase } from '../lib/paths'
 ---
 
@@ -79,7 +79,7 @@ import { withBase } from '../lib/paths'
           <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">Direction A</p>
           <h3 class="text-18 tracking-h3 text-ink mt-2 font-medium">Badge-first pictograms</h3>
         </div>
-        <ServicesCardGrid services={allServices} variant="badge" />
+        <ServicesCardGrid services={offeredServices} variant="badge" />
       </div>
 
       <div class="space-y-5">
@@ -87,7 +87,7 @@ import { withBase } from '../lib/paths'
           <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">Direction B</p>
           <h3 class="text-18 tracking-h3 text-ink mt-2 font-medium">Number-led editorial cards</h3>
         </div>
-        <ServicesCardGrid services={allServices} variant="numbered" />
+        <ServicesCardGrid services={offeredServices} variant="numbered" />
       </div>
 
       <div class="space-y-5">
@@ -95,7 +95,7 @@ import { withBase } from '../lib/paths'
           <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">Direction C</p>
           <h3 class="text-18 tracking-h3 text-ink mt-2 font-medium">Technical strip cards</h3>
         </div>
-        <ServicesCardGrid services={allServices} variant="technical" />
+        <ServicesCardGrid services={offeredServices} variant="technical" />
       </div>
     </section>
   </Container>

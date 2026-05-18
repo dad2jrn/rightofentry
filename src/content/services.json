@@ -2,10 +2,10 @@
   {
     "slug": "emergency-lockouts",
     "title": "Emergency Lockouts",
-    "shortDescription": "Residential, commercial, and automotive lockout help with 24/7 response.",
+    "shortDescription": "Residential, commercial, and vehicle lockout help for urgent access problems.",
     "longDescription": [
-      "Locked out of your home, business, or vehicle? Right of Entry focuses on non-destructive entry whenever possible so you can get back inside without turning a lockout into a hardware replacement job.",
-      "Emergency calls are handled with direct communication, realistic arrival expectations, and clear pricing before work starts. After-hours emergency pricing is listed separately so there is no confusion about what changes after normal service hours."
+      "Locked out of your home, business, or vehicle? Right of Entry focuses on non-destructive entry whenever possible so you can get access without turning a lockout into a hardware replacement job.",
+      "Emergency calls are handled with direct communication, realistic arrival expectations, and clear pricing before work starts. Availability can vary, so call for current emergency scheduling."
     ],
     "icon": "locked-door",
     "href": "/services#emergency-lockouts",
@@ -44,16 +44,16 @@
   {
     "slug": "automotive-keys",
     "title": "Automotive Keys",
-    "shortDescription": "Key duplication, fob programming, and ignition repair for everyday access issues.",
+    "shortDescription": "Automotive key services are staged but not currently offered.",
     "longDescription": [
-      "Automotive service covers the practical problems that stop a normal day cold: locked keys in the car, a damaged fob, a worn key, or an ignition that is starting to fail.",
-      "Vehicle make, model, and key type change the labor and parts involved, so pricing stays service-specific instead of pretending every automotive job fits one flat number."
+      "This category is kept in the service catalog for future planning, but it is not currently offered or displayed on the public site.",
+      "Vehicle lockouts are handled under Emergency Lockouts. Automotive key services remain disabled until the service package is ready."
     ],
     "icon": "key-fob",
     "href": "/services#automotive-keys",
     "order": 4,
-    "featured": true,
-    "offered": true
+    "featured": false,
+    "offered": false
   },
   {
     "slug": "commercial-security",

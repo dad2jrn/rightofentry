@@ -4,12 +4,12 @@ import Container from '../components/ui/Container.astro'
 import ServiceIcon from '../components/ui/ServiceIcon.astro'
 import FinalCTA from '../components/sections/FinalCTA.astro'
 import { BUSINESS_NAME, BUSINESS_SERVICE_AREA } from '../lib/business-info'
-import { allServices } from '../lib/service-catalog'
+import { offeredServices } from '../lib/service-catalog'
 import { cn } from '../lib/cn'
 
 const pageTitle = `Locksmith Services | ${BUSINESS_NAME}`
 const pageDescription =
-  'Emergency lockouts, rekeying, lock installation, automotive keys, and commercial security for Hampton Roads and Greater Richmond. Licensed local locksmith.'
+  'Emergency lockouts, vehicle lockouts, rekeying, and lock installation for Hampton Roads and Greater Richmond. Licensed local locksmith.'
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -23,7 +23,7 @@ const pageDescription =
           <div class="max-w-2xl">
             <h1
               id="services-page-title"
-              class="font-display text-36 tracking-h2 text-ink text-balance font-medium leading-display md:text-52 md:tracking-hero"
+              class="font-display text-36 tracking-h2 text-ink leading-display md:text-52 md:tracking-hero font-medium text-balance"
             >
               Services
             </h1>
@@ -45,7 +45,7 @@ const pageDescription =
     <Container class="py-12 md:py-16 lg:py-20">
       <div class="space-y-6 md:space-y-8">
         {
-          allServices.map((service, index) => {
+          offeredServices.map((service, index) => {
             const isReversed = index % 2 === 1
 
             return (
@@ -55,12 +55,7 @@ const pageDescription =
                 class="rounded-frame border-line bg-surface overflow-hidden border"
               >
                 <div class="grid lg:grid-cols-2">
-                  <div
-                    class={cn(
-                      'p-6 md:p-8 lg:p-10',
-                      isReversed ? 'lg:order-2' : 'lg:order-1',
-                    )}
-                  >
+                  <div class={cn('p-6 md:p-8 lg:p-10', isReversed ? 'lg:order-2' : 'lg:order-1')}>
                     <div class="flex flex-wrap items-start justify-between gap-4">
                       <div>
                         <p class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase">
@@ -68,7 +63,7 @@ const pageDescription =
                         </p>
                         <h2
                           id={`${service.slug}-title`}
-                          class="text-28 tracking-h2-sm text-ink mt-3 font-medium leading-tight md:text-32"
+                          class="text-28 tracking-h2-sm text-ink md:text-32 mt-3 leading-tight font-medium"
                         >
                           {service.title}
                         </h2>
@@ -84,9 +79,7 @@ const pageDescription =
                         {service.pricing.display}
                       </span>
                       <span class="text-12 tracking-caps-2 text-muted font-medium uppercase">
-                        {service.offered
-                          ? 'Available for service calls'
-                          : 'Call to confirm current availability'}
+                        Available for service calls
                       </span>
                     </div>
 
@@ -103,7 +96,7 @@ const pageDescription =
                         </p>
                         <ul class="mt-3 space-y-2">
                           {service.pricing.modifiers.map((modifier) => (
-                            <li class="text-14 leading-snug text-ink-soft">
+                            <li class="text-14 text-ink-soft leading-snug">
                               <span class="text-ink font-medium">{modifier.label}:</span>{' '}
                               {modifier.display}
                             </li>
@@ -119,12 +112,12 @@ const pageDescription =
                       isReversed ? 'lg:order-1 lg:border-r' : 'lg:order-2 lg:border-l',
                     )}
                   >
-                    <div class="flex w-full flex-col justify-between rounded-card border border-transparent">
+                    <div class="rounded-card flex w-full flex-col justify-between border border-transparent">
                       <div>
                         <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
                           At a glance
                         </p>
-                        <p class="text-22 tracking-h3 text-ink mt-4 max-w-[22ch] font-medium leading-tight md:text-28">
+                        <p class="text-22 tracking-h3 text-ink md:text-28 mt-4 max-w-[22ch] leading-tight font-medium">
                           {service.shortDescription}
                         </p>
                       </div>
@@ -138,11 +131,13 @@ const pageDescription =
                             <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
                               Base pricing
                             </p>
-                            <p class="text-16 text-ink mt-1 font-medium">{service.pricing.display}</p>
+                            <p class="text-16 text-ink mt-1 font-medium">
+                              {service.pricing.display}
+                            </p>
                           </div>
                         </div>
 
-                        <p class="text-13 leading-snug text-ink-soft mt-5 max-w-[36ch]">
+                        <p class="text-13 text-ink-soft mt-5 max-w-[36ch] leading-snug">
                           {service.pricing.modifiers.length > 0
                             ? 'Any service-specific modifiers are listed separately so the base rate stays clear.'
                             : 'Pricing is shown as the current starting point or service range for this category.'}

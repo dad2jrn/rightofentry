@@ -9,7 +9,7 @@ import {
 } from './business-info'
 
 export function localBusinessSchema() {
-  return {
+  const schema = {
     '@context': 'https://schema.org',
     '@type': 'Locksmith',
     name: BUSINESS_NAME,
@@ -24,7 +24,6 @@ export function localBusinessSchema() {
       postalCode: BUSINESS_ADDRESS.zip,
       addressCountry: BUSINESS_ADDRESS.country,
     },
-    openingHours: BUSINESS_HOURS,
     priceRange: '$$',
     areaServed: [
       { '@type': 'AdministrativeArea', name: BUSINESS_SERVICE_AREA },
@@ -33,4 +32,6 @@ export function localBusinessSchema() {
       { '@type': 'AdministrativeArea', name: 'James City County, VA' },
     ],
   }
+
+  return BUSINESS_HOURS ? { ...schema, openingHours: BUSINESS_HOURS } : schema
 }

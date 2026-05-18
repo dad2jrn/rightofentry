@@ -4,8 +4,8 @@ export const BUSINESS_LICENSE_STATUS = 'Licensed & Insured'
 export const PRIVACY_POLICY_HREF = '#'
 
 // TODO: Replace placeholders with real contact info before launch (Story 8.6)
-export const BUSINESS_PHONE = '(804) 695-4749'
-export const BUSINESS_PHONE_HREF = 'tel:+18046954749'
+export const BUSINESS_PHONE = '(757) 585-3395'
+export const BUSINESS_PHONE_HREF = 'tel:+17575853395'
 export const BUSINESS_EMAIL = 'info@rightofentrylock.com'
 export const BUSINESS_SERVICE_AREA = 'Hampton Roads/Greater Richmond, VA'
 export const BUSINESS_ADDRESS = {
@@ -15,11 +15,11 @@ export const BUSINESS_ADDRESS = {
   zip: '23168',
   country: 'US',
 } as const
-export const BUSINESS_HOURS = 'Mo-Su 00:00-23:59'
+export const BUSINESS_HOURS = null
 export const BUSINESS_URL = 'https://rightofentrylock.com'
 
 export const BUSINESS_HOURS_LIST = [
-  { label: 'Monday to Sunday', hours: 'Open 24 hours' },
+  { label: 'Emergencies', hours: 'Call for availability' },
 ] as const
 
 export const BUSINESS_SOCIAL_LINKS = [
