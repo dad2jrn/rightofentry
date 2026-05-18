@@ -24,7 +24,7 @@ import {
 } from '../lib/business-info'
 
 const heroDescription =
-  'Right of Entry Lock & Security is a local locksmith business built around straightforward communication, accountable work, emergency lockouts, and practical security help across Hampton Roads and Greater Richmond.'
+  'Right of Entry Lock & Security is a local locksmith business built around straightforward communication, accountable work, emergency lockouts, and practical security help across Hampton-Roads and Greater Richmond.'
 
 const credentials = [
   {
@@ -50,14 +50,14 @@ const credentials = [
   {
     title: 'Locally based in Toano',
     detail:
-      'Positioned to cover Hampton Roads and Greater Richmond without pretending to be everywhere.',
+      'Positioned to cover Hampton-Roads and Greater Richmond without pretending to be everywhere.',
     icon: MapPinned,
   },
 ] as const
 
 const serviceAreaGroups = [
   {
-    label: 'Hampton Roads',
+    label: 'Hampton-Roads',
     areas: [
       'Virginia Beach',
       'Norfolk',
@@ -94,8 +94,8 @@ const serviceAreaGroups = [
 ---
 
 <BaseLayout
-  title={`About ${BUSINESS_NAME} | Hampton Roads, VA`}
-  description="Family-owned, disabled veteran-owned locksmith based in James City County, VA. Serving Hampton Roads and Greater Richmond with licensed, practical security service."
+  title={`About ${BUSINESS_NAME} | Hampton-Roads, VA`}
+  description="Family-owned, disabled veteran-owned locksmith based in James City County, VA. Serving Hampton-Roads and Greater Richmond with licensed, practical security service."
   canonical={new URL('/about', BUSINESS_URL).href}
 >
   <section class="border-line bg-paper border-b">
@@ -175,7 +175,7 @@ const serviceAreaGroups = [
 
             <p>
               Right of Entry is rooted in Toano and James City County, with day-to-day work built
-              around the communities between {BUSINESS_ADDRESS.city}, Hampton Roads, and Greater
+              around the communities between {BUSINESS_ADDRESS.city}, Hampton-Roads, and Greater
               Richmond. That local footprint matters because arrival expectations, travel realities,
               and neighborhood knowledge are all different when the person answering the phone
               actually knows the area.
@@ -230,7 +230,7 @@ const serviceAreaGroups = [
     <Container class="py-16 md:py-20 lg:py-24">
       <SectionHeader
         eyebrow="Service area"
-        title="Serving Hampton Roads and Greater Richmond."
+        title="Serving Hampton-Roads and Greater Richmond."
         description="Coverage is centered on the regional corridor between Toano, the Peninsula, Southside, and the Richmond metro."
         class="max-w-3xl"
       />

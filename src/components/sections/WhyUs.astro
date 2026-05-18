@@ -15,7 +15,7 @@ const trustItems: TrustItem[] = [
     title: 'Actually local',
     icon: MapPin,
     body: [
-      'Based in the Hampton Roads/Greater Richmond, VA service area, not a national call center buying local-looking ads. That local coverage means shorter travel across the region and clearer arrival expectations.',
+      'Based in the Hampton-Roads/Greater Richmond, VA service area, not a national call center buying local-looking ads. That local coverage means shorter travel across the region and clearer arrival expectations.',
       'When you call Right of Entry, you reach the business owner who will actually be doing the work instead of a dispatcher brokering the job to whoever answers first.',
     ],
   },
@@ -65,12 +65,14 @@ const trustItems: TrustItem[] = [
               </span>
 
               <div class="flex flex-1 flex-col gap-3">
-                <h3 class="text-18 tracking-h3 text-ink md:text-22 font-medium leading-tight">
+                <h3 class="text-18 tracking-h3 text-ink md:text-22 leading-tight font-medium">
                   {title}
                 </h3>
 
                 <div class="text-14 leading-body text-ink-soft space-y-3">
-                  {body.map((paragraph) => <p>{paragraph}</p>)}
+                  {body.map((paragraph) => (
+                    <p>{paragraph}</p>
+                  ))}
                 </div>
               </div>
             </div>

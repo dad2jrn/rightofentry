@@ -27,7 +27,7 @@ export function localBusinessSchema() {
     priceRange: '$$',
     areaServed: [
       { '@type': 'AdministrativeArea', name: BUSINESS_SERVICE_AREA },
-      { '@type': 'AdministrativeArea', name: 'Hampton Roads, VA' },
+      { '@type': 'AdministrativeArea', name: 'Hampton-Roads, VA' },
       { '@type': 'AdministrativeArea', name: 'Greater Richmond, VA' },
       { '@type': 'AdministrativeArea', name: 'James City County, VA' },
     ],

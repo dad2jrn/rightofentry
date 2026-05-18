@@ -7,7 +7,7 @@ export const PRIVACY_POLICY_HREF = '#'
 export const BUSINESS_PHONE = '(757) 585-3395'
 export const BUSINESS_PHONE_HREF = 'tel:+17575853395'
 export const BUSINESS_EMAIL = 'info@rightofentrylock.com'
-export const BUSINESS_SERVICE_AREA = 'Hampton Roads/Greater Richmond, VA'
+export const BUSINESS_SERVICE_AREA = 'Hampton-Roads/Greater Richmond, VA'
 export const BUSINESS_ADDRESS = {
   street: '3325 Croshaw Ct',
   city: 'Toano',
