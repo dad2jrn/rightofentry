@@ -1,59 +1,59 @@
 [
   {
-    "slug": "emergency-lockouts",
-    "title": "Emergency Lockouts",
-    "shortDescription": "Residential, commercial, and vehicle lockout help for urgent access problems.",
+    "slug": "commercial-locksmith-services",
+    "title": "Commercial Locksmith Services",
+    "shortDescription": "High-security locks, electric strikes, SFIC, door closers, access control, master keys, and commercial lockouts.",
     "longDescription": [
-      "Locked out of your home, business, or vehicle? Right of Entry focuses on non-destructive entry whenever possible so you can get access without turning a lockout into a hardware replacement job.",
-      "Emergency calls are handled with direct communication, realistic arrival expectations, and clear pricing before work starts. Availability can vary, so call for current emergency scheduling."
+      "Commercial locksmith work should support how your building actually operates: who needs access, where key control matters, and which doors need reliable hardware every day.",
+      "Right of Entry handles practical commercial locksmith services including high-security commercial locks, electric strike installation, SFIC and interchangeable core systems, door closers, access control hardware, master key systems, and commercial lockouts."
     ],
-    "icon": "locked-door",
-    "href": "/services#emergency-lockouts",
+    "icon": "keypad-entry",
+    "href": "/services#commercial-locksmith-services",
     "order": 1,
     "featured": true,
     "offered": true
   },
   {
-    "slug": "lock-rekeying",
-    "title": "Lock Rekeying",
-    "shortDescription": "Keep your existing hardware and change who can access the property.",
+    "slug": "residential-locksmith-services",
+    "title": "Residential Locksmith Services",
+    "shortDescription": "Home lock installation, smart locks, rekeying, and residential lockout help.",
     "longDescription": [
-      "Rekeying is often the fastest way to regain control after a move, tenant turnover, lost keys, or staff changes. It lets you keep compatible hardware while changing the keys that operate it.",
-      "The goal is straightforward: confirm what stays, change what needs to change, and leave you with a clean set of working keys and a clear understanding of which locks now match."
+      "Residential locksmith service is focused on keeping your home accessible to the right people and secure against everyone else. That can mean improving everyday convenience, replacing worn hardware, or getting you back inside during a lockout.",
+      "Common home services include lock installation, smart lock installation, rekeying after a move or lost key, deadbolt replacement, and residential lockout assistance."
     ],
     "icon": "cylinder-key",
-    "href": "/services#lock-rekeying",
+    "href": "/services#residential-locksmith-services",
     "order": 2,
     "featured": true,
     "offered": true
   },
   {
-    "slug": "lock-installation",
-    "title": "Lock Installation",
-    "shortDescription": "Deadbolts, smart locks, and high-security cylinders installed correctly.",
+    "slug": "automotive-locksmith-services",
+    "title": "Automotive Locksmith Services",
+    "shortDescription": "Vehicle lockout help only, including emergency vehicle lockouts.",
     "longDescription": [
-      "New lock hardware only helps if it is installed square, aligned, and reinforced for the opening it protects. Right of Entry handles replacement deadbolts, fresh installations, and hardware swaps with an emphasis on fit and function.",
-      "If you are comparing options, the install visit can also cover what level of hardware makes sense for the door, frame, and how the property is actually used day to day."
+      "Automotive service is currently limited to vehicle lockout assistance. Right of Entry does not currently advertise automotive key cutting, key programming, ignition repair, or fob replacement services.",
+      "If your keys are locked inside your vehicle, including during an emergency lockout situation, call for current availability and realistic arrival expectations."
     ],
-    "icon": "deadbolt",
-    "href": "/services#lock-installation",
+    "icon": "key-fob",
+    "href": "/services#automotive-locksmith-services",
     "order": 3,
     "featured": true,
     "offered": true
   },
   {
-    "slug": "automotive-keys",
-    "title": "Automotive Keys",
-    "shortDescription": "Automotive key services are staged but not currently offered.",
+    "slug": "emergency-locksmith-services",
+    "title": "Emergency Locksmith Services",
+    "shortDescription": "Emergency residential, commercial, and automotive lockout services.",
     "longDescription": [
-      "This category is kept in the service catalog for future planning, but it is not currently offered or displayed on the public site.",
-      "Vehicle lockouts are handled under Emergency Lockouts. Automotive key services remain disabled until the service package is ready."
+      "Emergency locksmith calls are handled with a focus on clear communication, realistic arrival expectations, and non-destructive entry whenever possible.",
+      "Call for urgent residential lockouts, commercial lockouts, and automotive lockouts. Availability can vary, so the fastest next step is to call and describe the lockout situation."
     ],
-    "icon": "key-fob",
-    "href": "/services#automotive-keys",
+    "icon": "locked-door",
+    "href": "/services#emergency-locksmith-services",
     "order": 4,
-    "featured": false,
-    "offered": false
+    "featured": true,
+    "offered": true
   },
   {
     "slug": "commercial-security",

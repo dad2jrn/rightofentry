@@ -5,17 +5,74 @@ import ServiceIcon from '../components/ui/ServiceIcon.astro'
 import FinalCTA from '../components/sections/FinalCTA.astro'
 import { BUSINESS_NAME, BUSINESS_SERVICE_AREA } from '../lib/business-info'
 import { offeredServices } from '../lib/service-catalog'
-import { cn } from '../lib/cn'
 
 const pageTitle = `Locksmith Services | ${BUSINESS_NAME}`
 const pageDescription =
-  'Emergency lockouts, vehicle lockouts, rekeying, and lock installation for Hampton-Roads and Greater Richmond. Licensed local locksmith.'
+  'Commercial, residential, automotive lockout, and emergency locksmith services for Hampton Roads and Greater Richmond, VA.'
+
+const serviceDetails = {
+  'commercial-locksmith-services': {
+    eyebrow: 'For businesses and facilities',
+    summary:
+      'Commercial locksmith support for offices, storefronts, facilities, and managed properties.',
+    commonServices: [
+      'Commercial high-security locks',
+      'Electric strike installation',
+      'SFIC and interchangeable core systems',
+      'Door closers and door hardware support',
+      'Access control hardware',
+      'Master key systems',
+      'Commercial lockouts',
+    ],
+    bestFor:
+      'Business access control, key control, commercial door hardware upgrades, and urgent lockout help.',
+  },
+  'residential-locksmith-services': {
+    eyebrow: 'For homes and rentals',
+    summary:
+      'Residential locksmith work for everyday home security, convenience, and access problems.',
+    commonServices: [
+      'Lock installation and replacement',
+      'Smart lock installation',
+      'Rekeying after a move, lost key, or occupancy change',
+      'Deadbolt replacement',
+      'Residential lockouts',
+    ],
+    bestFor:
+      'Homeowners, renters, landlords, and property managers who need practical lock service.',
+  },
+  'automotive-locksmith-services': {
+    eyebrow: 'Vehicle lockouts only',
+    summary:
+      'Automotive service is limited to vehicle lockout assistance, including emergency vehicle lockouts.',
+    commonServices: [
+      'Vehicle lockout assistance',
+      'Emergency vehicle lockouts',
+      'Help when keys are locked inside the vehicle',
+    ],
+    bestFor:
+      'Drivers who are locked out of a vehicle. Automotive keys, key programming, ignition repair, and fob replacement are not currently advertised services.',
+  },
+  'emergency-locksmith-services': {
+    eyebrow: 'Urgent lockout help',
+    summary:
+      'Emergency locksmith service for urgent residential, commercial, and automotive lockout situations.',
+    commonServices: [
+      'Emergency residential lockouts',
+      'Emergency commercial lockouts',
+      'Emergency automotive lockouts',
+      'Non-destructive entry whenever possible',
+    ],
+    bestFor:
+      'Urgent access problems where you need clear communication and current availability fast.',
+  },
+} as const
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <section class="border-line bg-paper border-b" aria-labelledby="services-page-title">
     <Container class="py-14 md:py-18 lg:py-20">
-      <div class="max-w-4xl">
+      <div class="max-w-5xl">
         <p class="text-11 tracking-caps-3 text-accent-dark mb-4 font-medium uppercase">
           Locksmith services
         </p>
@@ -28,8 +85,8 @@ const pageDescription =
               Services
             </h1>
             <p class="text-16 leading-body text-ink-soft mt-5 max-w-[58ch]">
-              Clear, longer-form details on each service so you can quickly decide what fits your
-              situation before you call.
+              Choose the service category that matches your situation, then review what is included
+              before you call.
             </p>
           </div>
 
@@ -41,25 +98,66 @@ const pageDescription =
     </Container>
   </section>
 
+  <section class="border-line bg-surface border-b" aria-label="Service overview">
+    <Container class="py-10 md:py-12">
+      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        {
+          offeredServices.map((service) => {
+            const details = serviceDetails[service.slug as keyof typeof serviceDetails]
+
+            return (
+              <a
+                href={`#${service.slug}`}
+                class="group rounded-card border-line bg-paper lg:hover:border-ink-soft flex h-full flex-col border p-5 transition-[border-color,transform] duration-200 ease-out lg:hover:-translate-y-1"
+              >
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase">
+                      {details.eyebrow}
+                    </p>
+                    <h2 class="text-18 tracking-h3 text-ink mt-3 leading-tight font-medium">
+                      {service.title}
+                    </h2>
+                  </div>
+
+                  <span class="rounded-card border-line bg-surface text-accent group-hover:text-accent-dark inline-flex h-10 w-10 shrink-0 items-center justify-center border transition-colors duration-200">
+                    <ServiceIcon name={service.icon} class="h-5 w-5" />
+                  </span>
+                </div>
+
+                <p class="text-14 leading-body text-ink-soft mt-4">{details.summary}</p>
+
+                <span class="text-12 tracking-button text-accent-dark group-hover:text-accent mt-5 inline-flex items-center gap-2 font-medium transition-colors duration-200">
+                  View details
+                  <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            )
+          })
+        }
+      </div>
+    </Container>
+  </section>
+
   <section class="bg-paper" aria-label="Service details">
     <Container class="py-12 md:py-16 lg:py-20">
-      <div class="space-y-6 md:space-y-8">
+      <div class="space-y-5 md:space-y-6">
         {
-          offeredServices.map((service, index) => {
-            const isReversed = index % 2 === 1
+          offeredServices.map((service) => {
+            const details = serviceDetails[service.slug as keyof typeof serviceDetails]
 
             return (
               <article
                 id={service.slug}
                 aria-labelledby={`${service.slug}-title`}
-                class="rounded-frame border-line bg-surface overflow-hidden border"
+                class="rounded-frame border-line bg-surface scroll-mt-24 overflow-hidden border"
               >
-                <div class="grid lg:grid-cols-2">
-                  <div class={cn('p-6 md:p-8 lg:p-10', isReversed ? 'lg:order-2' : 'lg:order-1')}>
-                    <div class="flex flex-wrap items-start justify-between gap-4">
-                      <div>
+                <div class="grid gap-0 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
+                  <div class="p-6 md:p-8 lg:p-10">
+                    <header class="flex flex-wrap items-start justify-between gap-4">
+                      <div class="max-w-2xl">
                         <p class="text-11 tracking-caps-3 text-accent-dark font-medium uppercase">
-                          Service
+                          {details.eyebrow}
                         </p>
                         <h2
                           id={`${service.slug}-title`}
@@ -67,84 +165,61 @@ const pageDescription =
                         >
                           {service.title}
                         </h2>
+                        <p class="text-16 leading-body text-ink-soft mt-4 max-w-[62ch]">
+                          {details.summary}
+                        </p>
                       </div>
 
                       <span class="rounded-card border-line bg-paper text-accent inline-flex h-12 w-12 items-center justify-center border">
                         <ServiceIcon name={service.icon} class="h-6 w-6" />
                       </span>
-                    </div>
-
-                    <div class="mt-5 flex flex-wrap items-center gap-3">
-                      <span class="rounded-sharp border-line text-12 tracking-button text-ink inline-flex items-center border px-3 py-2 font-medium">
-                        {service.pricing.display}
-                      </span>
-                      <span class="text-12 tracking-caps-2 text-muted font-medium uppercase">
-                        Available for service calls
-                      </span>
-                    </div>
+                    </header>
 
                     <div class="prose prose-brand mt-6 max-w-none">
                       {service.longDescription.map((paragraph) => (
                         <p>{paragraph}</p>
                       ))}
                     </div>
+                  </div>
 
-                    {service.pricing.modifiers.length > 0 && (
-                      <div class="border-line mt-6 border-t pt-5">
+                  <aside class="border-line bg-paper border-t p-6 md:p-8 lg:border-t-0 lg:border-l lg:p-10">
+                    <div class="flex h-full flex-col justify-between gap-8">
+                      <div>
                         <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
-                          Pricing notes
+                          Common services
                         </p>
-                        <ul class="mt-3 space-y-2">
-                          {service.pricing.modifiers.map((modifier) => (
-                            <li class="text-14 text-ink-soft leading-snug">
-                              <span class="text-ink font-medium">{modifier.label}:</span>{' '}
-                              {modifier.display}
+                        <ul class="mt-4 space-y-3">
+                          {details.commonServices.map((item) => (
+                            <li class="text-14 text-ink-soft flex gap-3 leading-snug">
+                              <span
+                                class="bg-accent mt-2 h-1.5 w-1.5 shrink-0 rounded-full"
+                                aria-hidden="true"
+                              />
+                              <span>{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                    )}
-                  </div>
-
-                  <div
-                    class={cn(
-                      'border-line bg-paper flex border-t p-6 md:p-8 lg:border-t-0 lg:p-10',
-                      isReversed ? 'lg:order-1 lg:border-r' : 'lg:order-2 lg:border-l',
-                    )}
-                  >
-                    <div class="rounded-card flex w-full flex-col justify-between border border-transparent">
-                      <div>
-                        <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
-                          At a glance
-                        </p>
-                        <p class="text-22 tracking-h3 text-ink md:text-28 mt-4 max-w-[22ch] leading-tight font-medium">
-                          {service.shortDescription}
-                        </p>
-                      </div>
 
                       <div class="border-line mt-8 border-t pt-6">
-                        <div class="flex items-center gap-3">
-                          <span class="rounded-card bg-surface text-accent inline-flex h-11 w-11 items-center justify-center border border-transparent">
-                            <ServiceIcon name={service.icon} class="h-5.5 w-5.5" />
-                          </span>
-                          <div>
-                            <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
-                              Base pricing
-                            </p>
-                            <p class="text-16 text-ink mt-1 font-medium">
-                              {service.pricing.display}
-                            </p>
-                          </div>
-                        </div>
-
-                        <p class="text-13 text-ink-soft mt-5 max-w-[36ch] leading-snug">
-                          {service.pricing.modifiers.length > 0
-                            ? 'Any service-specific modifiers are listed separately so the base rate stays clear.'
-                            : 'Pricing is shown as the current starting point or service range for this category.'}
+                        <p class="text-11 tracking-caps-3 text-muted font-medium uppercase">
+                          Best for
                         </p>
+                        <p class="text-14 leading-body text-ink-soft mt-3">{details.bestFor}</p>
+
+                        <div class="mt-5 flex flex-wrap items-center gap-3">
+                          <span class="rounded-sharp border-line text-12 tracking-button text-ink inline-flex items-center border px-3 py-2 font-medium">
+                            {service.pricing.display}
+                          </span>
+                          {service.pricing.modifiers.map((modifier) => (
+                            <span class="text-12 tracking-caps-2 text-muted font-medium uppercase">
+                              {modifier.display}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </aside>
                 </div>
               </article>
             )

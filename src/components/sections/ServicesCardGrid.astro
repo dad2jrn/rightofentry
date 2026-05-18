@@ -23,6 +23,40 @@ type Props = {
 }
 
 const { services, variant = 'numbered' } = Astro.props
+
+const numberedGridClass =
+  services.length === 4
+    ? 'mx-auto grid max-w-7xl gap-4 md:grid-cols-2 xl:grid-cols-4 lg:gap-5'
+    : 'mx-auto grid max-w-6xl gap-4 md:grid-cols-2 lg:grid-cols-6 lg:gap-5'
+
+const numberedCardBaseClass =
+  services.length === 4
+    ? 'group rounded-card border-line bg-surface focus-visible:border-accent lg:hover:border-ink-soft flex h-full flex-col border p-5 transition-[border-color,transform,background-color] duration-200 ease-out md:p-6 lg:p-7 lg:hover:-translate-y-1'
+    : 'group rounded-card border-line bg-surface focus-visible:border-accent lg:hover:border-ink-soft flex h-full flex-col border p-5 transition-[border-color,transform,background-color] duration-200 ease-out md:p-6 lg:col-span-2 lg:p-7 lg:hover:-translate-y-1'
+
+const getCenteredGridItemClass = (index: number, count: number) => {
+  if (count === 4) {
+    return ''
+  }
+
+  if (count === 1) {
+    return 'lg:col-start-2 lg:col-span-4'
+  }
+
+  if (count === 2) {
+    return index === 0 ? 'lg:col-start-2' : ''
+  }
+
+  if (count % 3 === 1 && index === count - 1) {
+    return 'lg:col-start-3'
+  }
+
+  if (count % 3 === 2 && index === count - 2) {
+    return 'lg:col-start-2'
+  }
+
+  return ''
+}
 ---
 
 {
@@ -55,11 +89,11 @@ const { services, variant = 'numbered' } = Astro.props
 
 {
   variant === 'numbered' && (
-    <div class="grid gap-4 md:grid-cols-2 lg:gap-5 xl:grid-cols-4">
-      {services.map(({ href, icon, shortDescription, slug, title }) => (
+    <div class={numberedGridClass}>
+      {services.map(({ href, icon, shortDescription, slug, title }, index) => (
         <a
           href={withBase(href)}
-          class="group rounded-card border-line bg-surface focus-visible:border-accent lg:hover:border-ink-soft flex h-full flex-col border p-5 transition-[border-color,transform,background-color] duration-200 ease-out md:p-6 lg:p-7 lg:hover:-translate-y-1"
+          class:list={[numberedCardBaseClass, getCenteredGridItemClass(index, services.length)]}
         >
           <div class="flex items-start justify-between gap-4">
             <div>

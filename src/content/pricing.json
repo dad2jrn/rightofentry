@@ -1,33 +1,36 @@
 {
   "services": [
     {
-      "slug": "emergency-lockouts",
+      "slug": "commercial-locksmith-services",
+      "mode": "starting-at",
+      "display": "$150/hour",
+      "startingAt": 150,
+      "modifiers": []
+    },
+    {
+      "slug": "residential-locksmith-services",
+      "mode": "starting-at",
+      "display": "Starting at $95",
+      "startingAt": 95,
+      "modifiers": []
+    },
+    {
+      "slug": "automotive-locksmith-services",
       "mode": "starting-at",
       "display": "Starting at $195",
       "startingAt": 195,
-      "modifiers": ["emergency-after-hours"]
+      "modifiers": [
+        "emergency-after-hours"
+      ]
     },
     {
-      "slug": "lock-rekeying",
-      "mode": "range",
-      "display": "$95-$250/lock",
-      "minimum": 95,
-      "maximum": 250,
-      "modifiers": []
-    },
-    {
-      "slug": "lock-installation",
+      "slug": "emergency-locksmith-services",
       "mode": "starting-at",
-      "display": "Starting at $125",
-      "startingAt": 125,
-      "modifiers": []
-    },
-    {
-      "slug": "automotive-keys",
-      "mode": "starting-at",
-      "display": "Starting at $145",
-      "startingAt": 145,
-      "modifiers": []
+      "display": "Starting at $195",
+      "startingAt": 195,
+      "modifiers": [
+        "emergency-after-hours"
+      ]
     },
     {
       "slug": "commercial-security",
@@ -51,7 +54,10 @@
       "label": "Emergency after-hours fee",
       "display": "+$100 after hours",
       "amount": 100,
-      "appliesTo": ["emergency-lockouts"]
+      "appliesTo": [
+        "automotive-locksmith-services",
+        "emergency-locksmith-services"
+      ]
     }
   ]
 }
