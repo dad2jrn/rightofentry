@@ -3,16 +3,16 @@
     {
       "slug": "emergency-lockouts",
       "mode": "starting-at",
-      "display": "Starting at $95",
-      "startingAt": 95,
+      "display": "Starting at $195",
+      "startingAt": 195,
       "modifiers": ["emergency-after-hours"]
     },
     {
       "slug": "lock-rekeying",
       "mode": "range",
-      "display": "$85-$175",
-      "minimum": 85,
-      "maximum": 175,
+      "display": "$95-$250/lock",
+      "minimum": 95,
+      "maximum": 250,
       "modifiers": []
     },
     {
@@ -32,16 +32,16 @@
     {
       "slug": "commercial-security",
       "mode": "starting-at",
-      "display": "Starting at $150",
+      "display": "$150/hour",
       "startingAt": 150,
       "modifiers": []
     },
     {
       "slug": "security-assessments",
       "mode": "range",
-      "display": "$99-$249",
-      "minimum": 99,
-      "maximum": 249,
+      "display": "Starting at $150/hour",
+      "minimum": 150,
+      "maximum": 250,
       "modifiers": []
     }
   ],
