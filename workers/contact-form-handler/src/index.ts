@@ -266,7 +266,7 @@ const sendEmail = async (
       'User-Agent': 'right-of-entry-contact-worker/1.0',
     },
     body: JSON.stringify({
-      from: env.FROM_EMAIL,
+      from: `${submission.name} <${env.FROM_EMAIL}>`,
       to: [env.TO_EMAIL],
       subject,
       html,
